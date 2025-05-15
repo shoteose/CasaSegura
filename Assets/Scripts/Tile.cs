@@ -4,6 +4,8 @@ public class Tile : MonoBehaviour
 {
     public string questao;
     public Resposta[] respostas;
+    public string exercicio;
+    public string url_imagem;
     public string respostaCorreta;
     public bool especial;
 
@@ -12,10 +14,10 @@ public class Tile : MonoBehaviour
         if (!especial)
         {
 
-            Perguntas bancoPerguntas = LoadPerguntasFromJSON();
+            Perguntas perguntasArray = LoadPerguntasFromJSON();
 
-            int randomIndex = Random.Range(0, bancoPerguntas.perguntas.Length);
-            Pergunta perguntaAleatoria = bancoPerguntas.perguntas[randomIndex];
+            int randomIndex = Random.Range(0, perguntasArray.perguntas.Length);
+            Pergunta perguntaAleatoria = perguntasArray.perguntas[randomIndex];
 
             questao = perguntaAleatoria.questao;
             respostas = perguntaAleatoria.respostas;
@@ -30,6 +32,18 @@ public class Tile : MonoBehaviour
             }
 
         }
+        else
+        {
+
+            Exercicios exerciciosArray = LoadExerciciosFromJSON();
+
+            int randomIndex = Random.Range(0, exerciciosArray.exercicios.Length);
+            Exercicio exercicioAleatorio = exerciciosArray.exercicios[randomIndex];
+
+            exercicio = exercicioAleatorio.exercicio;
+            url_imagem = exercicioAleatorio.url_imagem;
+
+        }
     }
 
     private Perguntas LoadPerguntasFromJSON()
@@ -37,8 +51,23 @@ public class Tile : MonoBehaviour
         TextAsset json = Resources.Load<TextAsset>("teste");
         if (json != null)
         {
-            Perguntas banco = JsonUtility.FromJson<Perguntas>(json.ToString());
-            return banco;
+            Perguntas perguntas = JsonUtility.FromJson<Perguntas>(json.ToString());
+            return perguntas;
+        }
+        else
+        {
+            Debug.LogError("Arquivo JSON não encontrado!");
+            return null;
+        }
+    }
+
+    private Exercicios LoadExerciciosFromJSON()
+    {
+        TextAsset json = Resources.Load<TextAsset>("teste");
+        if (json != null)
+        {
+            Exercicios exercicios = JsonUtility.FromJson<Exercicios>(json.ToString());
+            return exercicios;
         }
         else
         {
@@ -69,3 +98,15 @@ public class Perguntas
     public Pergunta[] perguntas;
 }
 
+[System.Serializable]
+public class Exercicio
+{
+    public string exercicio;
+    public string url_imagem;
+}
+
+[System.Serializable]
+public class Exercicios
+{
+    public Exercicio[] exercicios;
+}
