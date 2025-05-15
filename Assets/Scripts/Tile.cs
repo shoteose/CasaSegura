@@ -7,24 +7,28 @@ public class Tile : MonoBehaviour
     public string respostaCorreta;
     public bool especial;
 
-
-    private void Start()
+    public void Questoes()
     {
-        Perguntas bancoPerguntas = LoadPerguntasFromJSON();
-
-        int randomIndex = Random.Range(0, bancoPerguntas.perguntas.Length);
-        Pergunta perguntaAleatoria = bancoPerguntas.perguntas[randomIndex];
-
-        questao = perguntaAleatoria.questao;
-        respostas = perguntaAleatoria.respostas;
-
-        foreach (var resposta in respostas)
+        if (!especial)
         {
-            if (resposta.correta)
+
+            Perguntas bancoPerguntas = LoadPerguntasFromJSON();
+
+            int randomIndex = Random.Range(0, bancoPerguntas.perguntas.Length);
+            Pergunta perguntaAleatoria = bancoPerguntas.perguntas[randomIndex];
+
+            questao = perguntaAleatoria.questao;
+            respostas = perguntaAleatoria.respostas;
+
+            foreach (var resposta in respostas)
             {
-                respostaCorreta = resposta.texto;
-                break;
+                if (resposta.correta)
+                {
+                    respostaCorreta = resposta.texto;
+                    break;
+                }
             }
+
         }
     }
 
@@ -48,15 +52,15 @@ public class Tile : MonoBehaviour
 [System.Serializable]
 public class Resposta
 {
-    public string texto;      // Texto da resposta
-    public bool correta;      // Se é a resposta correta ou não
+    public string texto;
+    public bool correta;
 }
 
 [System.Serializable]
 public class Pergunta
 {
-    public string questao;    // A pergunta em si
-    public Resposta[] respostas;  // Array de respostas
+    public string questao;
+    public Resposta[] respostas;
 }
 
 [System.Serializable]
@@ -64,3 +68,4 @@ public class Perguntas
 {
     public Pergunta[] perguntas;
 }
+
