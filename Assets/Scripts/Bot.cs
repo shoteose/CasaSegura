@@ -1,16 +1,49 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public class Bot : Player
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public override void Jogar()
     {
-        
+        int resultado = Random.Range(1, 7);
+        StartCoroutine(MoverEResponder(resultado));
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator MoverEResponder(int passos)
     {
-        
+        for (int i = 0; i < passos; i++)
+        {
+            posicao++;
+            Tile tileDestino = boardManager.GetTileNaPosicao(posicao);
+            if (tileDestino != null)
+            {
+                Vector3 destino = tileDestino.transform.position;
+                yield return StartCoroutine(MoverPara(gameObject, destino));
+            }
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        Tile tileAtual = boardManager.GetTileNaPosicao(posicao);
+        if (tileAtual != null)
+        {
+            if (tileAtual.especial)
+            {
+                Debug.Log($"[BOT] Casa especial: {tileAtual.exercicio}");
+            }
+            else
+            {
+                Debug.Log($"[BOT] Pergunta: {tileAtual.questao}");
+                int index = Random.Range(0, tileAtual.respostas.Length);
+                var resposta = tileAtual.respostas[index];
+                Debug.Log($"[BOT] Respondeu: {resposta.texto} ({(resposta.correta ? "certo" : "x")})");
+
+                if (resposta.correta) score++;
+            }
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        FimDoTurno();
     }
+
 }
+
