@@ -6,6 +6,8 @@ public class Bot : Player
     public override void Jogar()
     {
         int resultado = Random.Range(1, 7);
+
+        Debug.Log(resultado);
         StartCoroutine(MoverEResponder(resultado));
     }
 
@@ -47,6 +49,7 @@ public class Bot : Player
                     {
                         posicao = proximaPosicao;
                         Vector3 destinoExtra = tileExtra.transform.position;
+                        yield return new WaitForSeconds(1f);
                         yield return StartCoroutine(MoverPara(gameObject, destinoExtra));
                         yield return new WaitForSeconds(0.3f);
                     }
