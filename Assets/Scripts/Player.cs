@@ -23,6 +23,12 @@ public abstract class Player : MonoBehaviour
         matchController.TerminarTurno();
     }
 
+    protected void IniciarCoroutine(IEnumerator coroutine)
+    {
+        StartCoroutine(coroutine);
+    }
+
+
     protected IEnumerator MoverPara(GameObject objeto, Vector3 destino)
     {
         float t = 0;

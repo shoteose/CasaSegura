@@ -386,9 +386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c07beb49dd08540b98808fc4c93683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanoPrefab: {fileID: 0}
-  botPrefab: {fileID: 0}
-  jogadores: []
+  humanoPrefab: {fileID: 4695597145518761889, guid: 4f1a658926664e5488e880119af6f534, type: 3}
+  botPrefab: {fileID: 5846442837255761101, guid: d2d684adc7d6fd04d87c3b035550c3dd, type: 3}
 --- !u!4 &226061695
 Transform:
   m_ObjectHideFlags: 0
@@ -398,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 226061693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.010861874, y: -0.50000006, z: -0.009807825}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4620,7 +4619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardManager: {fileID: 632665382}
-  uiManager: {fileID: 0}
+  uiManager: {fileID: 1447677354}
 --- !u!4 &2140792283
 Transform:
   m_ObjectHideFlags: 0

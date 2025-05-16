@@ -37,13 +37,24 @@ public class Bot : Player
                 var resposta = tileAtual.respostas[index];
                 Debug.Log($"[BOT] Respondeu: {resposta.texto} ({(resposta.correta ? "certo" : "x")})");
 
-                if (resposta.correta) score++;
+                if (resposta.correta)
+                {
+                    score++;
+
+                    int proximaPosicao = posicao + 1;
+                    Tile tileExtra = boardManager.GetTileNaPosicao(proximaPosicao);
+                    if (tileExtra != null)
+                    {
+                        posicao = proximaPosicao;
+                        Vector3 destinoExtra = tileExtra.transform.position;
+                        yield return StartCoroutine(MoverPara(gameObject, destinoExtra));
+                        yield return new WaitForSeconds(0.3f);
+                    }
+                }
             }
         }
 
         yield return new WaitForSeconds(1.5f);
         FimDoTurno();
     }
-
 }
-

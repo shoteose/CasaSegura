@@ -32,6 +32,8 @@ public class Humano : Player
             if (tileAtual.especial)
             {
                 UIManager.Instance.MostrarExercicio(tileAtual.exercicio);
+                yield return new WaitForSeconds(1.5f);
+                FimDoTurno();
             }
             else
             {
@@ -40,12 +42,34 @@ public class Humano : Player
                     if (respostaEscolhida.correta)
                     {
                         score++;
+                        IniciarCoroutine(AvancarMaisUmaCasaSePossivel());
                     }
-
-                    FimDoTurno();
+                    else
+                    {
+                        FimDoTurno();
+                    }
                 });
-                yield break; // espera resposta antes de terminar o turno
+
+                yield break; // aguarda resposta
             }
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.5f);
+            FimDoTurno();
+        }
+    }
+
+    private IEnumerator AvancarMaisUmaCasaSePossivel()
+    {
+        int proximaPosicao = posicao + 1;
+        Tile tileExtra = boardManager.GetTileNaPosicao(proximaPosicao);
+        if (tileExtra != null)
+        {
+            posicao = proximaPosicao;
+            Vector3 destinoExtra = tileExtra.transform.position;
+            yield return StartCoroutine(MoverPara(gameObject, destinoExtra));
+            yield return new WaitForSeconds(0.3f);
         }
 
         yield return new WaitForSeconds(1.5f);
