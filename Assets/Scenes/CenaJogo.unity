@@ -386,7 +386,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c07beb49dd08540b98808fc4c93683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  x: aaaaaaaaaaaaa
+  humanoPrefab: {fileID: 0}
+  botPrefab: {fileID: 0}
+  jogadores: []
 --- !u!4 &226061695
 Transform:
   m_ObjectHideFlags: 0
@@ -1282,7 +1284,7 @@ GameObject:
   - component: {fileID: 758713247}
   - component: {fileID: 758713246}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: BotaoDados
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,8 +1306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -85.038, y: 67.272}
-  m_SizeDelta: {x: 170.07593, y: 134.5445}
+  m_AnchoredPosition: {x: -97.022736, y: 77.0096}
+  m_SizeDelta: {x: 194.0453, y: 154.0197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758713246
 MonoBehaviour:
@@ -1350,7 +1352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 758713247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2140792282}
+        m_TargetAssemblyTypeName: MatchController, Assembly-CSharp
+        m_MethodName: LancarDado
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &758713247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,7 +3361,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e7fb89ac6678204599a80bb4e4f41e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
   boardManager: {fileID: 632665382}
   uiManager: {fileID: 1195170750}
 --- !u!4 &2140792283
