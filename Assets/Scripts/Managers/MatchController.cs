@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class MatchController : MonoBehaviour
 {
     [Header("Managers")]
     [SerializeField] private BoardManager boardManager;
-    [SerializeField] private UIManager uiManager;
 
     [Header("Turnos")]
     private Player[] players;
@@ -28,7 +28,7 @@ public class MatchController : MonoBehaviour
             players[i].Setup(this, boardManager);
         }
 
-        IniciarTurno();
+        StartCoroutine(IniciarTurnoCoroutine());
     }
 
     private Vector3 CalcularOffset(int total, int index)
@@ -62,17 +62,17 @@ public class MatchController : MonoBehaviour
     }
 
 
-    private void IniciarTurno()
+    private IEnumerator IniciarTurnoCoroutine()
     {
         Player jogadorAtual = players[currentTurn];
+        yield return StartCoroutine(UIManager.Instance.MostrarTextoTurno(jogadorAtual));
         jogadorAtual.Jogar();
     }
 
     public void TerminarTurno()
     {
         currentTurn = (currentTurn + 1) % players.Length;
-        IniciarTurno();
+        StartCoroutine(IniciarTurnoCoroutine());
     }
-
 
 }

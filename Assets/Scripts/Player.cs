@@ -8,6 +8,7 @@ public abstract class Player : MonoBehaviour
     public int score;
     public Vector3 offset = new Vector3(0, 0, 0);
 
+
     protected MatchController matchController;
     protected BoardManager boardManager;
 

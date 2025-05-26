@@ -2,6 +2,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject painelPergunta;
     [SerializeField] private TextMeshProUGUI textoPergunta;
     [SerializeField] private Button[] botoesResposta;
+
+    [Header("GameState")]
+    [SerializeField] private GameObject HolderTextoTurno;
 
     void Awake()
     {
@@ -30,6 +34,8 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         painelPergunta.SetActive(false);
+        HolderTextoTurno.SetActive(false);
+        
     }
     public void MostrarBotaoLancarDado(Action onClick)
     {
@@ -69,6 +75,15 @@ public class UIManager : MonoBehaviour
                 botoesResposta[i].gameObject.SetActive(false);
             }
         }
+    }
+
+
+    public IEnumerator MostrarTextoTurno(Player playerVez)
+    {
+        HolderTextoTurno.SetActive(true);
+        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = "É a vez do " + playerVez.nome;
+        yield return new WaitForSeconds(1.5f);
+        HolderTextoTurno.SetActive(false);
     }
 
     public void MostrarExercicio(string descricao)
