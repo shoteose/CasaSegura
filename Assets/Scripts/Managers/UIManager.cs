@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
     {
         painelPergunta.SetActive(false);
         HolderTextoTurno.SetActive(false);
+        painelLancarDado.SetActive(false);
         
     }
     public void MostrarBotaoLancarDado(Action onClick)

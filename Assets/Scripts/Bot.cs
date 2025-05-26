@@ -6,7 +6,6 @@ public class Bot : Player
     public override void Jogar()
     {
         int resultado = Random.Range(1, 7);
-
         Debug.Log(resultado);
         StartCoroutine(MoverEResponder(resultado));
     }

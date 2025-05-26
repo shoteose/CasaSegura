@@ -5,7 +5,7 @@ using UnityEngine;
 public class BoardManager : MonoBehaviour
 {
 
-    private int totalTiles = 35;
+    public int totalTiles = 35;
     [SerializeField]
     private Tile[] tabuleiro;
     public Transform TabuleiroPai;

@@ -1498,6 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ef633789651ce42bb3239f0361bfdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTiles: 35
   tabuleiro: []
   TabuleiroPai: {fileID: 1429399415}
   casasEspeciais: 
@@ -4980,6 +4981,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boardManager: {fileID: 632665382}
+  materiaisPlayers:
+  - {fileID: 2100000, guid: fe2053411defaae4db585734f2c5c72d, type: 2}
+  - {fileID: 2100000, guid: 7a7ae713ba4e2954ea06be1f90c9d513, type: 2}
+  - {fileID: 2100000, guid: 83179c0b3b169f3418be2129c605c33e, type: 2}
+  - {fileID: 2100000, guid: f425827f7012e2148b931eb889d4c7f2, type: 2}
 --- !u!4 &2140792283
 Transform:
   m_ObjectHideFlags: 0

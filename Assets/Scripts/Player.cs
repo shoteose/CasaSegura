@@ -8,14 +8,14 @@ public abstract class Player : MonoBehaviour
     public int score;
     public Vector3 offset = new Vector3(0, 0, 0);
 
-
     protected MatchController matchController;
     protected BoardManager boardManager;
 
-    public void Setup(MatchController controller, BoardManager board)
+    public void Setup(MatchController controller, BoardManager board, Material material)
     {
         this.matchController = controller;
         this.boardManager = board;
+        this.GetComponentInChildren<Renderer>().material = material;
     }
 
     public abstract void Jogar();

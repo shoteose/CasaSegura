@@ -12,6 +12,9 @@ public class MatchController : MonoBehaviour
     private Player[] players;
     private int currentTurn = 0;
 
+    [Header("Materiais")]
+    [SerializeField] private Material[] materiaisPlayers;
+
     private void Start()
     {
         List<Player> jogadores = GameControllor.Instance.InstanciarJogadores();
@@ -25,7 +28,7 @@ public class MatchController : MonoBehaviour
             Vector3 offset = CalcularOffset(players.Length, i);
             players[i].offset = offset;
             players[i].transform.position = basePos + offset;
-            players[i].Setup(this, boardManager);
+            players[i].Setup(this, boardManager, materiaisPlayers[i]);
         }
 
         StartCoroutine(IniciarTurnoCoroutine());
@@ -71,8 +74,31 @@ public class MatchController : MonoBehaviour
 
     public void TerminarTurno()
     {
+        Player jogadorAtual = players[currentTurn];
+        if (jogadorAtual.posicao >= boardManager.totalTiles - 1)
+        {
+            GameOver(jogadorAtual);
+            return;
+        }
+
         currentTurn = (currentTurn + 1) % players.Length;
         StartCoroutine(IniciarTurnoCoroutine());
     }
+
+    private void GameOver(Player vencedor)
+    {
+        Debug.Log($"Jogo terminado! Vencedor: {vencedor.nome}");
+  
+        StartCoroutine(MostrarGameOverUI(vencedor));
+    }
+
+    private IEnumerator MostrarGameOverUI(Player vencedor)
+    {
+        
+        //UIManager.Instance.MostrarPainelGameOver(vencedor.nome);
+        yield return null;
+        
+    }
+
 
 }

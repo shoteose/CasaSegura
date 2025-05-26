@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Humano : Player
 {
+    public int index;
     public override void Jogar()
     {
         UIManager.Instance.MostrarBotaoLancarDado(() =>
