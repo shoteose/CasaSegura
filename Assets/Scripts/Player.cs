@@ -6,6 +6,7 @@ public abstract class Player : MonoBehaviour
     public string nome;
     public int posicao;
     public int score;
+    public Vector3 offset = new Vector3(0, 0, 0);
 
     protected MatchController matchController;
     protected BoardManager boardManager;
@@ -37,7 +38,7 @@ public abstract class Player : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime * 2f;
-            objeto.transform.position = Vector3.Lerp(origem, destino, t);
+            objeto.transform.position = Vector3.Lerp(origem, destino + offset, t);
             yield return null;
         }
     }

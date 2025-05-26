@@ -27,6 +27,10 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        painelPergunta.SetActive(false);
+    }
     public void MostrarBotaoLancarDado(Action onClick)
     {
         painelLancarDado.SetActive(true);
@@ -50,7 +54,7 @@ public class UIManager : MonoBehaviour
             if (i < respostas.Length)
             {
                 botoesResposta[i].gameObject.SetActive(true);
-                botoesResposta[i].GetComponentInChildren<Text>().text = respostas[i].texto;
+                botoesResposta[i].GetComponentInChildren<TextMeshProUGUI>().text = respostas[i].texto;
 
                 int idx = i;
                 botoesResposta[i].onClick.RemoveAllListeners();
@@ -70,7 +74,7 @@ public class UIManager : MonoBehaviour
     public void MostrarExercicio(string descricao)
     {
         Debug.Log($"[UI] Exibir exercício: {descricao}");
-        // Aqui podes ativar painel com imagem ou instrução
+        // ATIVAR PAINEL NESTEA PARTR
     }
 
 }

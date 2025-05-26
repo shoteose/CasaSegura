@@ -26,9 +26,11 @@ public class GameControllor : MonoBehaviour
     public List<Player> InstanciarJogadores()
     {
         jogadores.Clear();
-        //jogadores.Add(CriarJogador(humanoPrefab, "Bot 1"));
+        jogadores.Add(CriarJogador(humanoPrefab, "Humano"));
+        jogadores.Add(CriarJogador(humanoPrefab, "Humano"));
+        jogadores.Add(CriarJogador(humanoPrefab, "Humano"));
         jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
-        jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
+        //jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
 
 
         return jogadores;

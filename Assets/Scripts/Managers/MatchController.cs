@@ -23,6 +23,7 @@ public class MatchController : MonoBehaviour
         for (int i = 0; i < players.Length; i++)
         {
             Vector3 offset = CalcularOffset(players.Length, i);
+            players[i].offset = offset;
             players[i].transform.position = basePos + offset;
             players[i].Setup(this, boardManager);
         }
@@ -32,7 +33,7 @@ public class MatchController : MonoBehaviour
 
     private Vector3 CalcularOffset(int total, int index)
     {
-        float espaco = 0.5f; // espaço entre jogadores
+        float espaco = 0.25f;
 
         switch (total)
         {
