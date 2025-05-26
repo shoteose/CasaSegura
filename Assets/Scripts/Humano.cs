@@ -8,6 +8,7 @@ public class Humano : Player
         UIManager.Instance.MostrarBotaoLancarDado(() =>
         {
             int resultado = Random.Range(1, 7);
+            Debug.Log("[Humano " + this.nome + " ] Lancou o dado com " + resultado);
             StartCoroutine(MoverEResponder(resultado));
         });
     }
