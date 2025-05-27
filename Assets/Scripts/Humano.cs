@@ -4,18 +4,29 @@ using UnityEngine;
 public class Humano : Player
 {
     public int index;
+    public bool jogou = false;
     public override void Jogar()
     {
         UIManager.Instance.MostrarBotaoLancarDado(() =>
         {
-            int resultado = Random.Range(1, 7);
-            Debug.Log("[Humano " + this.nome + " ] Lancou o dado com " + resultado);
-            StartCoroutine(MoverEResponder(resultado));
+            if (!jogou)
+            {
+                this.jogou = true;
+                int resultado = Random.Range(1, 7);
+                Debug.Log("[Humano " + this.nome + " ] Lancou o dado com " + resultado);
+                //StartCoroutine(UIManager.Instance.RodarDado(resultado));
+
+                StartCoroutine(MoverEResponder(resultado));
+            }
+
         });
     }
 
     private IEnumerator MoverEResponder(int passos)
     {
+
+        yield return StartCoroutine(UIManager.Instance.RodarDado(passos));
+
         for (int i = 0; i < passos; i++)
         {
             posicao++;
@@ -28,13 +39,14 @@ public class Humano : Player
             yield return new WaitForSeconds(0.3f);
         }
 
+
         Tile tileAtual = boardManager.GetTileNaPosicao(posicao);
         if (tileAtual != null)
         {
             if (tileAtual.especial)
             {
-                UIManager.Instance.MostrarExercicio(tileAtual.exercicio);
-                yield return new WaitForSeconds(1.5f);
+                yield return StartCoroutine(UIManager.Instance.MostrarExercicio(tileAtual.exercicio, tileAtual.url_imagem));
+                //yield return new WaitForSeconds(1.5f);
                 FimDoTurno();
             }
             else
@@ -60,6 +72,12 @@ public class Humano : Player
             yield return new WaitForSeconds(1.5f);
             FimDoTurno();
         }
+    }
+
+    protected new virtual void FimDoTurno() {
+
+        matchController.TerminarTurno();
+        this.jogou = false;
     }
 
     private IEnumerator AvancarMaisUmaCasaSePossivel()

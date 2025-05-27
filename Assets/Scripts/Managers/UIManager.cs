@@ -3,22 +3,46 @@ using System;
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [Header("Botões")]
+    [SerializeField] private GameObject loadingImage;
+
+    [Header("Paienl Botões")]
     [SerializeField] private GameObject painelLancarDado;
     [SerializeField] private Button botaoLancarDado;
+
+    [Header("Dados")]
+    [SerializeField] private RawImage dado;
+    [SerializeField] private Texture[] imagensDados;
+
+    [Header("Painel Exercicios")]
+    [SerializeField] private GameObject painelExercicios;
+    [SerializeField] private TextMeshProUGUI textoExercicio;
+    [SerializeField] private RawImage imagemExercicio;
+    [SerializeField] private Texture noWifi;
+    private Texture downlaodedTexture;
+
+    [Header("Painel GameOver")]
+    [SerializeField] private GameObject painelGameOver;
+    [SerializeField] private TextMeshProUGUI textoGameOver;
+    [SerializeField] private Button[] botoesGameOver;
+    
 
     [Header("Pergunta")]
     [SerializeField] private GameObject painelPergunta;
     [SerializeField] private TextMeshProUGUI textoPergunta;
+    [SerializeField] private TextMeshProUGUI textoTempo;
     [SerializeField] private Button[] botoesResposta;
 
     [Header("GameState")]
     [SerializeField] private GameObject HolderTextoTurno;
+
+
 
     void Awake()
     {
@@ -34,9 +58,18 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         painelPergunta.SetActive(false);
+        painelExercicios.SetActive(false);
         HolderTextoTurno.SetActive(false);
         painelLancarDado.SetActive(false);
+        painelGameOver.SetActive(false);
         
+    }
+
+    public void StopLoading()
+    {
+
+        loadingImage.SetActive(false);
+
     }
     public void MostrarBotaoLancarDado(Action onClick)
     {
@@ -46,9 +79,52 @@ public class UIManager : MonoBehaviour
 
         botaoLancarDado.onClick.AddListener(() =>
         {
-            painelLancarDado.SetActive(false);
             onClick?.Invoke();
         });
+    }
+
+    public IEnumerator EditarTextoTurno(string mens)
+    {
+        HolderTextoTurno.SetActive(true);
+        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = mens;
+
+        yield return new WaitForSeconds(1f);
+        HolderTextoTurno.SetActive(false);
+    }
+
+    public void MostrarPainelGameOver(Player player)
+    {
+        Debug.Log("TA AQUI CARALHO");
+        painelGameOver.SetActive(true);
+        textoGameOver.text = $"Parabéns o jogador {player.nome} ganhou com {player.score} pontos!!";
+       
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    public void VoltarMenuPrincipal()
+    {
+
+    }
+
+    public IEnumerator RodarDado(int valor)
+    {
+        int counter = 0;
+
+        while (counter <= 5) {
+
+            dado.texture = imagensDados[counter];
+            yield return new WaitForSeconds(0.25f);
+            counter++;
+        }
+
+        dado.texture = imagensDados[valor - 1];
+        yield return new WaitForSeconds(1.25f);
+        painelLancarDado.SetActive(false);
     }
 
     public void MostrarPergunta(string pergunta, Resposta[] respostas, Action<Resposta> aoResponder)
@@ -87,10 +163,50 @@ public class UIManager : MonoBehaviour
         HolderTextoTurno.SetActive(false);
     }
 
-    public void MostrarExercicio(string descricao)
+    public IEnumerator MostrarExercicio(string descricao, string url)
     {
         Debug.Log($"[UI] Exibir exercício: {descricao}");
-        // ATIVAR PAINEL NESTEA PARTR
+       
+        yield return StartCoroutine(downloadImagemFromUrl(url));
+
+        painelExercicios.SetActive(true);
+        textoExercicio.text = descricao;
+
+        for (int i = 1; i <= 10; i++)
+        {
+
+            textoTempo.text = $"{11 - i} segundos";
+            yield return new WaitForSecondsRealtime(1f);
+
+        }
+        
+        painelExercicios.SetActive(false);
+
+    }
+
+    private IEnumerator downloadImagemFromUrl(string url)
+    {
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.Success) {
+
+            downlaodedTexture = DownloadHandlerTexture.GetContent(www);
+
+            Texture textura = downlaodedTexture;
+
+            imagemExercicio.texture = textura;
+            Debug.Log("deu");
+        }
+        else
+        {
+
+            imagemExercicio.texture = noWifi;
+            Debug.Log($"Erro a fazer o download {url}");
+        }
+
+
     }
 
 }

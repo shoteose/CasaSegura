@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class BoardManager : MonoBehaviour
 {
@@ -10,11 +12,32 @@ public class BoardManager : MonoBehaviour
     private Tile[] tabuleiro;
     public Transform TabuleiroPai;
     public List<int> casasEspeciais;
+    private bool net;
+    public bool SetupConcluido { get; private set; } = false;
+
 
     void Start()
     {
+
+        StartCoroutine(Setup());
+
+    }
+
+    private IEnumerator Setup()
+    {
+        yield return StartCoroutine(VerificarInternet());
+
         casasEspeciais = new List<int>();
-        int nrCasasEspeciais = Random.Range(4, (totalTiles / 4));
+        int nrCasasEspeciais;
+        if (net)
+        {
+            nrCasasEspeciais = Random.Range(4, (totalTiles / 4));
+        }
+        else
+        {
+
+            nrCasasEspeciais = 0;
+        }
 
         while (casasEspeciais.Count < nrCasasEspeciais)
         {
@@ -46,32 +69,38 @@ public class BoardManager : MonoBehaviour
             }
         }
 
-        foreach (Tile tile in tabuleiro)
-        {
-            if (tile.especial)
-            {
-                //Debug.Log(tile.exercicio + "  :::" + tile.url_imagem);
 
-            }
-            else
+        foreach (Transform tile in TabuleiroPai)
+        {
+
+            Tile tileComponent = tile.GetComponent<Tile>();
+            if (tileComponent.especial)
             {
-                //Debug.Log(tile.questao + "  :::" + tile.respostaCorreta);
+                if (casasEspeciais.Contains(counter))
+                {
+                    Debug.Log("sou especial no indice: " + counter);
+                }
+
+
             }
         }
 
+        SetupConcluido = true;
 
     }
-
-
-    public void Imprime()
+    private IEnumerator VerificarInternet()
     {
-        foreach (Tile tile in tabuleiro)
-        {
-            string mens;
-            mens = tile.questao;
-            if (tile.especial) mens = tile.exercicio;
+        UnityWebRequest request = new UnityWebRequest("https://google.com");
 
-            Debug.Log(mens);
+        yield return request.SendWebRequest();
+
+        if (request.error != null)
+        {
+            net = false;
+        }
+        else
+        {
+            net = true;
         }
     }
 

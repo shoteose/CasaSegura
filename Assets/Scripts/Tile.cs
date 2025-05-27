@@ -9,12 +9,11 @@ public class Tile : MonoBehaviour
     public string respostaCorreta;
     public bool especial;
 
-
     public void Questoes()
     {
         if (!especial)
         {
-            Perguntas perguntasArray = PerguntasLoader.LoadPerguntas("teste");
+            Perguntas perguntasArray = PerguntasLoader.LoadPerguntas("perguntas");
 
             if (perguntasArray == null || perguntasArray.perguntas == null || perguntasArray.perguntas.Length == 0)
                 return;
@@ -36,7 +35,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            Exercicios exerciciosArray = PerguntasLoader.LoadExercicios("teste");
+            Exercicios exerciciosArray = PerguntasLoader.LoadExercicios("exercicios");
 
             if (exerciciosArray == null || exerciciosArray.exercicios == null || exerciciosArray.exercicios.Length == 0)
                 return;

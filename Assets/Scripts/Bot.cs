@@ -7,6 +7,7 @@ public class Bot : Player
     {
         int resultado = Random.Range(1, 7);
         Debug.Log(resultado);
+        
         StartCoroutine(MoverEResponder(resultado));
     }
 
@@ -36,10 +37,12 @@ public class Bot : Player
                 Debug.Log($"[BOT] Pergunta: {tileAtual.questao}");
                 int index = Random.Range(0, tileAtual.respostas.Length);
                 var resposta = tileAtual.respostas[index];
-                Debug.Log($"[BOT] Respondeu: {resposta.texto} ({(resposta.correta ? "certo" : "x")})");
+                Debug.Log($"[BOT] Respondeu: {resposta.texto}");
 
                 if (resposta.correta)
                 {
+                    
+                    StartCoroutine(UIManager.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!"));
                     score++;
 
                     int proximaPosicao = posicao + 1;
@@ -53,10 +56,15 @@ public class Bot : Player
                         yield return new WaitForSeconds(0.3f);
                     }
                 }
+                else
+                {
+                    StartCoroutine(UIManager.Instance.EditarTextoTurno($"O jogador {this.nome} errou!"));
+                }
+
             }
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         FimDoTurno();
     }
 }

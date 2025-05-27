@@ -17,7 +17,6 @@ public abstract class Player : MonoBehaviour
         this.boardManager = board;
         this.GetComponentInChildren<Renderer>().material = material;
     }
-
     public abstract void Jogar();
 
     protected void FimDoTurno()
@@ -25,7 +24,7 @@ public abstract class Player : MonoBehaviour
         matchController.TerminarTurno();
     }
 
-    protected void IniciarCoroutine(IEnumerator coroutine)
+    protected virtual void IniciarCoroutine(IEnumerator coroutine)
     {
         StartCoroutine(coroutine);
     }
