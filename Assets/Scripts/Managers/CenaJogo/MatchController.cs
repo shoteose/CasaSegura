@@ -43,7 +43,7 @@ public class MatchController : MonoBehaviour
             players[i].Setup(this, boardManager, materiaisPlayers[i]);
         }
 
-        UIManager.Instance.StopLoading();
+        UIManagerJogo.Instance.StopLoading();
 
         StartCoroutine(IniciarTurnoCoroutine());
     }
@@ -81,7 +81,7 @@ public class MatchController : MonoBehaviour
     private IEnumerator IniciarTurnoCoroutine()
     {
         Player jogadorAtual = players[currentTurn];
-        yield return StartCoroutine(UIManager.Instance.MostrarTextoTurno(jogadorAtual));
+        yield return StartCoroutine(UIManagerJogo.Instance.MostrarTextoTurno(jogadorAtual));
         jogadorAtual.Jogar();
     }
 
@@ -108,7 +108,7 @@ public class MatchController : MonoBehaviour
     private void MostrarGameOverUI(Player vencedor)
     {
 
-       UIManager.Instance.MostrarPainelGameOver(vencedor);
+       UIManagerJogo.Instance.MostrarPainelGameOver(vencedor);
         
         
     }

@@ -4,11 +4,10 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class UIManagerJogo : MonoBehaviour
 {
-    public static UIManager Instance;
+    public static UIManagerJogo Instance;
 
     [SerializeField] private GameObject loadingImage;
 
@@ -102,13 +101,13 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameControllor.Instance.RestartGame();
 
     }
 
     public void VoltarMenuPrincipal()
     {
-
+        GameControllor.Instance.VoltarMenuPrincipal();
     }
 
     public IEnumerator RodarDado(int valor)
@@ -153,7 +152,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
 
     public IEnumerator MostrarTextoTurno(Player playerVez)
     {

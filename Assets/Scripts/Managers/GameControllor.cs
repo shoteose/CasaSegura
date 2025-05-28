@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControllor : MonoBehaviour
 {
@@ -26,9 +27,9 @@ public class GameControllor : MonoBehaviour
     public List<Player> InstanciarJogadores()
     {
         jogadores.Clear();
-        //jogadores.Add(CriarJogador(humanoPrefab, "Joao"));
+        jogadores.Add(CriarJogador(humanoPrefab, "Jogador 1"));
         //jogadores.Add(CriarJogador(humanoPrefab, "Paulo"));
-        jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
+        //jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
         jogadores.Add(CriarJogador(botPrefab, "Bot 2"));
 
         //jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
@@ -47,4 +48,25 @@ public class GameControllor : MonoBehaviour
     }
 
     public List<Player> GetJogadores() => jogadores;
+
+    public void Jogar()
+    {
+        SceneManager.LoadScene("CenaJogo");
+    }
+
+    public void VoltarMenuPrincipal()
+    {
+        SceneManager.LoadScene("CenaMenuInicial");
+    }
+
+    public void MenuGestaoPlayers()
+    {
+        SceneManager.LoadScene("CenaGestao");
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
 }

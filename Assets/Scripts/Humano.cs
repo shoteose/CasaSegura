@@ -7,14 +7,14 @@ public class Humano : Player
     public bool jogou = false;
     public override void Jogar()
     {
-        UIManager.Instance.MostrarBotaoLancarDado(() =>
+        UIManagerJogo.Instance.MostrarBotaoLancarDado(() =>
         {
             if (!jogou)
             {
                 this.jogou = true;
                 int resultado = Random.Range(1, 7);
                 Debug.Log("[Humano " + this.nome + " ] Lancou o dado com " + resultado);
-                //StartCoroutine(UIManager.Instance.RodarDado(resultado));
+                //StartCoroutine(UIManagerJogo.Instance.RodarDado(resultado));
 
                 StartCoroutine(MoverEResponder(resultado));
             }
@@ -25,7 +25,7 @@ public class Humano : Player
     private IEnumerator MoverEResponder(int passos)
     {
 
-        yield return StartCoroutine(UIManager.Instance.RodarDado(passos));
+        yield return StartCoroutine(UIManagerJogo.Instance.RodarDado(passos));
 
         for (int i = 0; i < passos; i++)
         {
@@ -45,13 +45,13 @@ public class Humano : Player
         {
             if (tileAtual.especial)
             {
-                yield return StartCoroutine(UIManager.Instance.MostrarExercicio(tileAtual.exercicio, tileAtual.url_imagem));
+                yield return StartCoroutine(UIManagerJogo.Instance.MostrarExercicio(tileAtual.exercicio, tileAtual.url_imagem));
                 //yield return new WaitForSeconds(1.5f);
                 FimDoTurno();
             }
             else
             {
-                UIManager.Instance.MostrarPergunta(tileAtual.questao, tileAtual.respostas, (respostaEscolhida) =>
+                UIManagerJogo.Instance.MostrarPergunta(tileAtual.questao, tileAtual.respostas, (respostaEscolhida) =>
                 {
                     if (respostaEscolhida.correta)
                     {

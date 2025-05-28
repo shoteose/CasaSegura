@@ -42,7 +42,7 @@ public class Bot : Player
                 if (resposta.correta)
                 {
                     
-                    StartCoroutine(UIManager.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!"));
+                    StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!"));
                     score++;
 
                     int proximaPosicao = posicao + 1;
@@ -58,7 +58,7 @@ public class Bot : Player
                 }
                 else
                 {
-                    StartCoroutine(UIManager.Instance.EditarTextoTurno($"O jogador {this.nome} errou!"));
+                    StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} errou!"));
                 }
 
             }
