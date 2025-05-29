@@ -11,6 +11,7 @@ public class GameControllor : MonoBehaviour
     public GameObject botPrefab;
 
     private List<Player> jogadores = new List<Player>();
+    private List<int> jogadoresSelecionados = new();
 
     private void Awake()
     {
@@ -24,28 +25,39 @@ public class GameControllor : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void DefinirJogadoresPorIndice(List<int> lista)
+    {
+        jogadoresSelecionados = new List<int>(lista);
+    }
+
     public List<Player> InstanciarJogadores()
     {
         jogadores.Clear();
-        jogadores.Add(CriarJogador(humanoPrefab, "Jogador 1"));
-        //jogadores.Add(CriarJogador(humanoPrefab, "Paulo"));
-        //jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
-        jogadores.Add(CriarJogador(botPrefab, "Bot 2"));
 
-        //jogadores.Add(CriarJogador(botPrefab, "Bot 1"));
+        foreach (int index in jogadoresSelecionados)
+        {
+            GameObject prefab;
 
+            if (index != 4)
+            {
+                prefab = humanoPrefab;
+            }
+            else
+            {
+                prefab = botPrefab;
+            }
+
+            Player p = Instantiate(prefab).GetComponent<Player>();
+            //p.nome = $"Jogador {index + 1}";
+            p.indiceCor = index;
+            p.posicao = 0;
+
+            jogadores.Add(p);
+        }
 
         return jogadores;
     }
 
-    private Player CriarJogador(GameObject prefab, string nome)
-    {
-        GameObject go = Instantiate(prefab);
-        Player p = go.GetComponent<Player>();
-        p.nome = nome;
-        p.posicao = 0;
-        return p;
-    }
 
     public List<Player> GetJogadores() => jogadores;
 
@@ -61,12 +73,12 @@ public class GameControllor : MonoBehaviour
 
     public void MenuGestaoPlayers()
     {
+        Debug.Log("que passa caralho");
         SceneManager.LoadScene("CenaGestao");
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
     }
 }

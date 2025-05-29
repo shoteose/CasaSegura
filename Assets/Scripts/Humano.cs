@@ -56,7 +56,7 @@ public class Humano : Player
                     if (respostaEscolhida.correta)
                     {
                         score++;
-                        IniciarCoroutine(AvancarMaisUmaCasaSePossivel());
+                        StartCoroutine(AvancarMaisUmaCasaSePossivel());
                     }
                     else
                     {
@@ -69,7 +69,7 @@ public class Humano : Player
         }
         else
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             FimDoTurno();
         }
     }
@@ -89,10 +89,10 @@ public class Humano : Player
             posicao = proximaPosicao;
             Vector3 destinoExtra = tileExtra.transform.position;
             yield return StartCoroutine(MoverPara(gameObject, destinoExtra));
-            yield return new WaitForSeconds(0.3f);
+            //yield return new WaitForSeconds(0.3f);
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         FimDoTurno();
     }
 }

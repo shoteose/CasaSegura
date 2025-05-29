@@ -40,7 +40,7 @@ public class MatchController : MonoBehaviour
             Vector3 offset = CalcularOffset(players.Length, i);
             players[i].offset = offset;
             players[i].transform.position = basePos + offset;
-            players[i].Setup(this, boardManager, materiaisPlayers[i]);
+            players[i].Setup(this, boardManager, materiaisPlayers[players[i].indiceCor]);
         }
 
         UIManagerJogo.Instance.StopLoading();

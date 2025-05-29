@@ -95,7 +95,7 @@ public class UIManagerJogo : MonoBehaviour
     {
         Debug.Log("TA AQUI CARALHO");
         painelGameOver.SetActive(true);
-        textoGameOver.text = $"Parabéns o jogador {player.nome} ganhou com {player.score} pontos!!";
+        textoGameOver.text = $"Parabéns o jogador {player.nome} ganhou!!";
        
     }
 
@@ -112,19 +112,21 @@ public class UIManagerJogo : MonoBehaviour
 
     public IEnumerator RodarDado(int valor)
     {
-        int counter = 0;
+        int numeroGiros = UnityEngine.Random.Range(8, 16);
+        int totalFaces = imagensDados.Length;
 
-        while (counter <= 5) {
-
-            dado.texture = imagensDados[counter];
-            yield return new WaitForSeconds(0.25f);
-            counter++;
+        for (int i = 0; i < numeroGiros; i++)
+        {
+            int faceAleatoria = UnityEngine.Random.Range(0, totalFaces);
+            dado.texture = imagensDados[faceAleatoria];
+            yield return new WaitForSeconds(0.1f);
         }
 
         dado.texture = imagensDados[valor - 1];
         yield return new WaitForSeconds(1.25f);
         painelLancarDado.SetActive(false);
     }
+
 
     public void MostrarPergunta(string pergunta, Resposta[] respostas, Action<Resposta> aoResponder)
     {

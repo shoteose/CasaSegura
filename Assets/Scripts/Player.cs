@@ -7,6 +7,8 @@ public abstract class Player : MonoBehaviour
     public int posicao;
     public int score;
     public Vector3 offset = new Vector3(0, 0, 0);
+    public int indiceCor;
+    public bool bot;
 
     protected MatchController matchController;
     protected BoardManager boardManager;
@@ -16,6 +18,30 @@ public abstract class Player : MonoBehaviour
         this.matchController = controller;
         this.boardManager = board;
         this.GetComponentInChildren<Renderer>().material = material;
+        string _nome = "";
+
+        switch (indiceCor) { 
+            case 0:
+                    _nome = "Vermelho";
+                break;
+            case 1:
+                    _nome = "Amarelo";
+                    break;
+            case 2:
+                    _nome = "Verde";
+                    break;
+            case 3:
+                    _nome = "Rosa";
+                    break;
+            case 4:
+                    _nome = "Azul Ciano";
+                    break;
+            case 5:
+                    _nome = "Ratatui";
+                    break;
+        }
+
+        this.nome = _nome;
     }
     public abstract void Jogar();
 
@@ -24,21 +50,15 @@ public abstract class Player : MonoBehaviour
         matchController.TerminarTurno();
     }
 
-    protected virtual void IniciarCoroutine(IEnumerator coroutine)
-    {
-        StartCoroutine(coroutine);
-    }
-
-
     protected IEnumerator MoverPara(GameObject objeto, Vector3 destino)
     {
-        float t = 0;
+        float tempo = 0;
         Vector3 origem = objeto.transform.position;
 
-        while (t < 1)
+        while (tempo < 1)
         {
-            t += Time.deltaTime * 2f;
-            objeto.transform.position = Vector3.Lerp(origem, destino + offset, t);
+            tempo += Time.deltaTime * 2f;
+            objeto.transform.position = Vector3.Lerp(origem, destino + offset, tempo);
             yield return null;
         }
     }
