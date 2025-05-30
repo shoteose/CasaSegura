@@ -17,6 +17,7 @@ public class Pergunta
 [System.Serializable]
 public class Perguntas
 {
+    public int versao;
     public Pergunta[] perguntas;
 }
 
@@ -30,5 +31,6 @@ public class Exercicio
 [System.Serializable]
 public class Exercicios
 {
+    public int versao;
     public Exercicio[] exercicios;
 }

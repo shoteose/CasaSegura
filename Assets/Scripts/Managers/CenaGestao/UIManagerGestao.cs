@@ -25,6 +25,9 @@ public class GestaoPlayerCena : MonoBehaviour
     [Header("Jogadores Ativos")]
     [SerializeField] private List<int> jogadoresAtivos = new List<int>();
 
+    [Header("Numero de Bots")]
+    [SerializeField] private int nrBots;
+
     private void Awake()
     {
 
@@ -116,7 +119,11 @@ public class GestaoPlayerCena : MonoBehaviour
 
     private void JogarContraPc()
     {
-        jogadoresAtivos.Add(4);
+        for(int i = 0; i < nrBots; i++)
+        {
+            jogadoresAtivos.Add(i + 4);
+        }
+ 
         GameControllor.Instance.DefinirJogadoresPorIndice(jogadoresAtivos);
         GameControllor.Instance.Jogar();
     }

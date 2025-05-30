@@ -7,11 +7,11 @@ public class GameControllor : MonoBehaviour
     public static GameControllor Instance;
 
     [Header("Prefabs")]
-    public GameObject humanoPrefab;
-    public GameObject botPrefab;
+    [SerializeField] private GameObject humanoPrefab;
+    [SerializeField] private GameObject botPrefab;
 
-    private List<Player> jogadores = new List<Player>();
-    private List<int> jogadoresSelecionados = new();
+    [SerializeField] private List<Player> jogadores = new List<Player>();
+    [SerializeField] private List<int> jogadoresSelecionados = new();
 
     private void Awake()
     {

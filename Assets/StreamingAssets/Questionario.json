@@ -1,0 +1,25 @@
+{
+    "versao": 1,
+    "perguntas": [
+        {
+            "pergunta": "Qual a sua idade?",
+            "tipo": "dropdown",
+            "opcoes": [ "< 60 anos", "60-69", "70-79", "80-89", "90 ou mais" ]
+        },
+        {
+            "pergunta": "Qual o seu sexo?",
+            "tipo": "dropdown",
+            "opcoes": [ "Masculino", "Feminino", "Prefiro não dizer" ]
+        },
+        {
+            "pergunta": "Qual o seu estado civil?",
+            "tipo": "dropdown",
+            "opcoes": [ "Solteiro(a)", "Casado(a)", "Viúvo(a)", "Divorciado(a)" ]
+        },
+        {
+            "pergunta": "Qual o seu grau de escolaridade?",
+            "tipo": "dropdown",
+            "opcoes": [ "Sem instrução", "Ensino Básico", "Ensino Secundário", "Ensino Superior" ]
+        }
+    ]
+}

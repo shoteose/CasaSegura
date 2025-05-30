@@ -6572,7 +6572,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 83179c0b3b169f3418be2129c605c33e, type: 2}
   - {fileID: 2100000, guid: f425827f7012e2148b931eb889d4c7f2, type: 2}
   - {fileID: 2100000, guid: 1489a92dd2297074086bdf0eb33dea50, type: 2}
-  materiaisBots: []
+  - {fileID: 2100000, guid: 69c04c4ea5808904ea29301c66b5b95a, type: 2}
+  - {fileID: 2100000, guid: e78c5f64bd2fe3745873f821c21ef0b1, type: 2}
 --- !u!4 &2140792283
 Transform:
   m_ObjectHideFlags: 0
