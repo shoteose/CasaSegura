@@ -25,6 +25,9 @@ public class BoardManager : MonoBehaviour
 
     private IEnumerator Setup()
     {
+        while (!ApiManager.AtualizacaoTerminada)
+            yield return null;
+
         yield return StartCoroutine(VerificarInternet());
 
         casasEspeciais = new List<int>();

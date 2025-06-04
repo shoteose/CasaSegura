@@ -19,17 +19,17 @@ public class QuestionarioController : MonoBehaviour
 
     private IEnumerator CarregarQuestionario()
     {
-        Questionario loadedQuestionario = null;
+        yield return GenericLoader.Load<Questionario>(ApiManager.nomeArquivoQuestionario, q =>
+        {
+            questionario = q;
 
-        yield return QuestionarioLoader.LoadQuestionario("questionario", (q) => loadedQuestionario = q);
+            if (questionario == null)
+                Debug.Log("Falha ao carregar questionário.");
 
-        questionario = loadedQuestionario;
-
-        if (questionario == null)
-            Debug.Log("Falha ao carregar questionário.");
-
-        AtualizarVisibilidade();
+            AtualizarVisibilidade();
+        });
     }
+
 
 
     private void Update()
@@ -95,6 +95,15 @@ public class QuestionarioController : MonoBehaviour
 
     public void ResetarQuestionario()
     {
+        JsonFileManager.DeleteJson("perguntas");
+        JsonFileManager.DeleteJson("exercicios");
+        JsonFileManager.DeleteJson("questionario");
+
+        // Também podes resetar versões locais, se quiseres
+        DadosPlayer.SetVersaoPerguntas(0);
+        DadosPlayer.SetVersaoExercicios(0);
+        DadosPlayer.SetVersaoQuestionario(0);
+
         DadosPlayer.ResetarQuestionario();
         Debug.Log("Questionário resetado.");
 

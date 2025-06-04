@@ -17,12 +17,14 @@ public class Tile : MonoBehaviour
 
     private IEnumerator CarregarQuestoesCoroutine()
     {
+        
         if (!especial)
         {
+            Debug.Log("Este tile é pergunta");
             Perguntas perguntasArray = null;
-            yield return PerguntasLoader.LoadPerguntas("perguntas", p => perguntasArray = p);
+            yield return GenericLoader.Load<Perguntas>(ApiManager.nomeArquivoPerguntas, p => perguntasArray = p);
 
-            if (perguntasArray == null || perguntasArray.perguntas == null || perguntasArray.perguntas.Length == 0)
+            if (perguntasArray?.perguntas == null || perguntasArray.perguntas.Length == 0)
                 yield break;
 
             int randomIndex = Random.Range(0, perguntasArray.perguntas.Length);
@@ -42,10 +44,11 @@ public class Tile : MonoBehaviour
         }
         else
         {
+            Debug.Log("Este tile é especial");
             Exercicios exerciciosArray = null;
-            yield return ExerciciosLoader.LoadExercicios("exercicios", e => exerciciosArray = e);
+            yield return GenericLoader.Load<Exercicios>(ApiManager.nomeArquivoExercicios, e => exerciciosArray = e);
 
-            if (exerciciosArray == null || exerciciosArray.exercicios == null || exerciciosArray.exercicios.Length == 0)
+            if (exerciciosArray?.exercicios == null || exerciciosArray.exercicios.Length == 0)
                 yield break;
 
             int randomIndex = Random.Range(0, exerciciosArray.exercicios.Length);
@@ -55,5 +58,4 @@ public class Tile : MonoBehaviour
             url_imagem = exercicioAleatorio.url_imagem;
         }
     }
-
 }
