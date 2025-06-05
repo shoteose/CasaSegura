@@ -12,6 +12,10 @@ public class QuestionarioController : MonoBehaviour
 
     private Questionario questionario;
 
+    [Header("Referência API MANAGER")]
+    [SerializeField] private ApiManager apiManager; 
+
+
     void Start()
     {
         StartCoroutine(CarregarQuestionario());
@@ -22,7 +26,7 @@ public class QuestionarioController : MonoBehaviour
         yield return GenericLoader.Load<Questionario>(ApiManager.nomeArquivoQuestionario, q =>
         {
             questionario = q;
-
+            Debug.Log(questionario.perguntas[0].id + " ----------");
             if (questionario == null)
                 Debug.Log("Falha ao carregar questionário.");
 
@@ -52,9 +56,22 @@ public class QuestionarioController : MonoBehaviour
             return;
         }
 
-        bool deveExibir = DadosPlayer.DeveExibirQuestionario(questionario.versao);
-        botaoQuestionario.SetActive(deveExibir);
-        panelQuestionario.SetActive(false);
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            botaoQuestionario.SetActive(false);
+            panelQuestionario.SetActive(false);
+
+        }
+        else
+        {
+
+            bool deveExibir = DadosPlayer.DeveExibirQuestionario(questionario.versao);
+            botaoQuestionario.SetActive(deveExibir);
+            panelQuestionario.SetActive(false);
+
+        }
+
+
     }
 
     public void AbrirQuestionario()
@@ -79,18 +96,35 @@ public class QuestionarioController : MonoBehaviour
     {
         if (questionario == null || !questionarioUI.TodasRespondidas(questionario))
         {
-            Debug.LogWarning("Por favor responda todas as perguntas.");
+            Debug.LogWarning("Falta responder");
             return;
         }
-
-        // TODO: Implementar envio para API
+        //envio das respostas
         Debug.Log("Enviando respostas...");
 
-        // Atualiza versão após responder
         DadosPlayer.SetVersaoQuestionario(questionario.versao);
         DadosPlayer.MarcarQuestionarioRespondido();
+        //Debug.Log(questionarioUI.GetTodasRespostas());
+        RespostasQuestionario respostasQuestionario = new()
+        {
+            utilizador_id = System.Guid.NewGuid().ToString(),
+            respostas = questionarioUI.GetTodasRespostas()
+        };
 
+        foreach (var item in respostasQuestionario.respostas)
+        {
+            RespostaQuestionario rq = new()
+            {
+                utilizador_id = respostasQuestionario.utilizador_id,
+                pergunta_id = item.Key,
+                resposta_texto = item.Value
+            };
+
+            StartCoroutine(apiManager.EnviarResposta(rq));
+
+        }
         panelQuestionario.SetActive(false);
+
     }
 
     public void ResetarQuestionario()
@@ -99,7 +133,6 @@ public class QuestionarioController : MonoBehaviour
         JsonFileManager.DeleteJson("exercicios");
         JsonFileManager.DeleteJson("questionario");
 
-        // Também podes resetar versões locais, se quiseres
         DadosPlayer.SetVersaoPerguntas(0);
         DadosPlayer.SetVersaoExercicios(0);
         DadosPlayer.SetVersaoQuestionario(0);
@@ -110,15 +143,4 @@ public class QuestionarioController : MonoBehaviour
         AtualizarVisibilidade();
     }
 
-    // Método para quando receberes nova versão da API
-    public void VerificarNovaVersao(int versaoAPI)
-    {
-        if (questionario != null && questionario.versao < versaoAPI)
-        {
-            // Carrega nova versão do questionário
-            CarregarQuestionario();
-            AtualizarVisibilidade();
-            Debug.Log($"Nova versão do questionário disponível: {versaoAPI}");
-        }
-    }
 }

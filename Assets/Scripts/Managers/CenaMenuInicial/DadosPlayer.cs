@@ -51,7 +51,6 @@ public static class DadosPlayer
     public static bool DeveExibirQuestionario(int versaoAtual)
     {
         if (!JaRespondeuQuestionario()) return true;
-        if (GetVersaoQuestionario() < versaoAtual) return true;
         return false;
     }
 }

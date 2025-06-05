@@ -33,6 +33,7 @@ public static class GenericLoader
         TextAsset resourceJson = Resources.Load<TextAsset>(fileNameWithoutExt);
         if (resourceJson != null)
         {
+            Debug.Log("carregeuei do resources com o " + fileName);
             T data = JsonUtility.FromJson<T>(resourceJson.text);
             callback?.Invoke(data);
             yield break;

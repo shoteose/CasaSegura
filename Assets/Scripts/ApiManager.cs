@@ -18,6 +18,7 @@ public class ApiManager : MonoBehaviour
     private const string urlPerguntas = "https://casaseguraapi.onrender.com/api/pergunta/json";
     private const string urlExercicios = "https://casaseguraapi.onrender.com/api/exercicio/json";
     private const string urlQuestionario = "https://casaseguraapi.onrender.com/api/perguntaquestionario/json";
+    private const string urlRespostaquestionario = "https://casaseguraapi.onrender.com/api/respostaquestionario";
 
     void Start()
     {
@@ -57,13 +58,13 @@ public class ApiManager : MonoBehaviour
             if (versoes.exercicios > DadosPlayer.GetVersaoExercicios())
                 yield return StartCoroutine(DownloadEAtualizar(nomeArquivoExercicios, urlExercicios, versoes.exercicios, DadosPlayer.SetVersaoExercicios));
 
-            if (versoes.questionario > DadosPlayer.GetVersaoExercicios())
+            if (versoes.questionario > DadosPlayer.GetVersaoQuestionario())
                 yield return StartCoroutine(DownloadEAtualizar(nomeArquivoQuestionario, urlQuestionario, versoes.questionario, DadosPlayer.SetVersaoQuestionario));
 
 
-            Debug.Log(versoes.questionario + " " + versoes.exercicios + " "+ versoes.perguntas);
-            Debug.Log(DadosPlayer.GetVersaoExercicios()+ " " + DadosPlayer.GetVersaoExercicios()+ " " + DadosPlayer.GetVersaoPerguntas());
-            
+            Debug.Log(versoes.questionario + " " + versoes.exercicios + " " + versoes.perguntas);
+            Debug.Log(DadosPlayer.GetVersaoQuestionario() + " " + DadosPlayer.GetVersaoExercicios() + " " + DadosPlayer.GetVersaoPerguntas());
+
         }
         AtualizacaoTerminada = true;
 
@@ -71,7 +72,7 @@ public class ApiManager : MonoBehaviour
 
     private IEnumerator DownloadEAtualizar(string nomeArquivo, string url, int versaoNova, System.Action<int> setVersaoCallback)
     {
-        Debug.Log("Estou a fazer download dp " +  nomeArquivo + " da versao " + versaoNova);
+        Debug.Log("Estou a fazer download dp " + nomeArquivo + " da versao " + versaoNova);
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -90,10 +91,39 @@ public class ApiManager : MonoBehaviour
                 Debug.LogError($"resposta da API deu erro: {nomeArquivo}:\n{json}");
                 yield break;
             }
+
             JsonFileManager.SaveJson(nomeArquivo, json);
             setVersaoCallback?.Invoke(versaoNova);
 
             Debug.Log($"{nomeArquivo} atualizado para versão {versaoNova}.");
         }
     }
+
+    public IEnumerator EnviarResposta(RespostaQuestionario rq)
+    {
+        Debug.Log($"UUID: {rq.utilizador_id} Pergunta_id: {rq.pergunta_id} Resposta: {rq.resposta_texto}");
+
+        string json = JsonUtility.ToJson(rq);
+        Debug.Log("A enviar JSON: " + json);
+
+        using (UnityWebRequest request = new UnityWebRequest(urlRespostaquestionario, "POST"))
+        {
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(json);
+            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Erro ao enviar resposta: " + request.error);
+            }
+            else
+            {
+                Debug.Log("Resposta enviada com sucesso: " + request.downloadHandler.text);
+            }
+        }
+    }
+
 }

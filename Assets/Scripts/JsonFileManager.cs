@@ -5,6 +5,7 @@ public static class JsonFileManager
 {
     public static void SaveJson(string fileName, string json)
     {
+        Debug.Log(json.ToString()); 
         string path = Path.Combine(Application.persistentDataPath, fileName + ".json");
         File.WriteAllText(path, json);
     }
