@@ -15,6 +15,12 @@ public class UIManagerJogo : MonoBehaviour
     [SerializeField] private GameObject painelLancarDado;
     [SerializeField] private Button botaoLancarDado;
 
+    [Header("Painel Pausa")]
+    [SerializeField] private Button botaoPausa;
+    [SerializeField] private GameObject painelPausa;
+    [SerializeField] private Button botaoContinuar;
+    [SerializeField] private Button botaoMenu;
+
     [Header("Dados")]
     [SerializeField] private RawImage dado;
     [SerializeField] private Texture[] imagensDados;
@@ -61,7 +67,10 @@ public class UIManagerJogo : MonoBehaviour
         HolderTextoTurno.SetActive(false);
         painelLancarDado.SetActive(false);
         painelGameOver.SetActive(false);
-        
+        painelPausa.SetActive(false);
+        botaoPausa.onClick.AddListener(AbrirPausa);
+
+
     }
 
     public void StopLoading()
@@ -98,6 +107,27 @@ public class UIManagerJogo : MonoBehaviour
         textoGameOver.text = $"Parabéns o jogador {player.nome} ganhou!!";
        
     }
+
+    private void AbrirPausa()
+    {
+        Time.timeScale = 0f;
+        painelPausa.SetActive(true);
+
+        botaoContinuar.onClick.RemoveAllListeners();
+        botaoContinuar.onClick.AddListener(() =>
+        {
+            Time.timeScale = 1f;
+            painelPausa.SetActive(false);
+        });
+
+        botaoMenu.onClick.RemoveAllListeners();
+        botaoMenu.onClick.AddListener(() =>
+        {
+            Time.timeScale = 1f;
+            VoltarMenuPrincipal();
+        });
+    }
+
 
     public void RestartGame()
     {
@@ -174,12 +204,14 @@ public class UIManagerJogo : MonoBehaviour
 
         for (int i = 1; i <= 10; i++)
         {
+            while (Time.timeScale == 0f)
+                yield return null;
 
             textoTempo.text = $"{11 - i} segundos";
             yield return new WaitForSecondsRealtime(1f);
-
         }
-        
+
+
         painelExercicios.SetActive(false);
 
     }
