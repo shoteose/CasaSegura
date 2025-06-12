@@ -12,7 +12,6 @@ public class BoardManager : MonoBehaviour
     private Tile[] tabuleiro;
     public Transform TabuleiroPai;
     public List<int> casasEspeciais;
-    private bool net;
     public bool SetupConcluido { get; private set; } = false;
 
 
@@ -25,14 +24,17 @@ public class BoardManager : MonoBehaviour
 
     private IEnumerator Setup()
     {
-        while (!ApiManager.AtualizacaoTerminada)
-            yield return null;
 
-        yield return StartCoroutine(VerificarInternet());
+        while (!ApiManager.AtualizacaoTerminada && ApiManager.net)
+        {
+            Debug.Log("esperando");
+            yield return null;
+        }
+
 
         casasEspeciais = new List<int>();
         int nrCasasEspeciais;
-        if (net)
+        if (ApiManager.net)
         {
             nrCasasEspeciais = Random.Range(4, (totalTiles / 4));
         }
@@ -90,21 +92,6 @@ public class BoardManager : MonoBehaviour
 
         SetupConcluido = true;
 
-    }
-    private IEnumerator VerificarInternet()
-    {
-        UnityWebRequest request = new UnityWebRequest("https://google.com");
-
-        yield return request.SendWebRequest();
-
-        if (request.error != null)
-        {
-            net = false;
-        }
-        else
-        {
-            net = true;
-        }
     }
 
     public Tile GetTileNaPosicao(int pos)

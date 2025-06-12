@@ -9,9 +9,15 @@ public class Tile : MonoBehaviour
     public string url_imagem;
     public string respostaCorreta;
     public bool especial;
+    [SerializeField] private Material[] materiais;
+    [SerializeField] private GameObject[] planes;
+    [SerializeField] private GameObject cubo;
+    [SerializeField] private Material cuboMat;
 
     public void Questoes()
     {
+        cuboMat = cubo.GetComponent<Material>();
+        
         StartCoroutine(CarregarQuestoesCoroutine());
     }
 

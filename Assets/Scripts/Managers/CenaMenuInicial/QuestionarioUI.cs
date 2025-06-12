@@ -7,6 +7,7 @@ public class QuestionarioUI : MonoBehaviour
 {
     [Header("Referencias UI")]
     public RectTransform contentPanel;
+    public GameObject textoPrivacidade;
     public GameObject prefabInputField;
     public GameObject prefabDropdown;
 
@@ -15,6 +16,8 @@ public class QuestionarioUI : MonoBehaviour
     public void CriarFormulario(Questionario questionario)
     {
         LimparFormulario();
+
+        Instantiate(textoPrivacidade, contentPanel);
 
         foreach (var pergunta in questionario.perguntas)
         {

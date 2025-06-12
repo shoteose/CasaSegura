@@ -8,7 +8,7 @@ public static class GenericLoader
     {
 
 
-        // tenta carregar primeiro do persistent data
+        // tenta carregar primeiro do persistent dados
         string jsonLocal = JsonFileManager.LoadJson(fileName);
 
 
@@ -16,8 +16,9 @@ public static class GenericLoader
         {
             try
             {
-                T data = JsonUtility.FromJson<T>(jsonLocal);
-                callback?.Invoke(data);
+                Debug.Log("Dados Persistentes (ja sacado)");
+                T dados = JsonUtility.FromJson<T>(jsonLocal);
+                callback?.Invoke(dados);
             }
             catch (System.Exception e)
             {
@@ -29,13 +30,13 @@ public static class GenericLoader
 
 
         // tenta carregar do resources
-        string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
-        TextAsset resourceJson = Resources.Load<TextAsset>(fileNameWithoutExt);
+        string ficheiroSemExtensao = Path.GetFileNameWithoutExtension(fileName);
+        TextAsset resourceJson = Resources.Load<TextAsset>(ficheiroSemExtensao);
         if (resourceJson != null)
         {
             Debug.Log("carregeuei do resources com o " + fileName);
-            T data = JsonUtility.FromJson<T>(resourceJson.text);
-            callback?.Invoke(data);
+            T dados = JsonUtility.FromJson<T>(resourceJson.text);
+            callback?.Invoke(dados);
             yield break;
         }
 

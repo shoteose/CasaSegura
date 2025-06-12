@@ -9,6 +9,7 @@ public class ApiManager : MonoBehaviour
 
     public static bool AtualizacaoTerminada = false;
 
+    public static bool net;
 
     public const string nomeArquivoPerguntas = "perguntas";
     public const string nomeArquivoExercicios = "exercicios";
@@ -22,16 +23,40 @@ public class ApiManager : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(VerificarInternet());
         StartCoroutine(VerificarAtualizacoes());
     }
 
-    private IEnumerator VerificarAtualizacoes()
+    private IEnumerator Setup()
     {
-        if (Application.internetReachability == NetworkReachability.NotReachable)
+        yield return StartCoroutine(VerificarInternet());
+
+        if (net)
         {
-            Debug.LogWarning("Sem net");
-            yield break;
+
+            StartCoroutine(VerificarAtualizacoes());
+
         }
+    }
+
+    private IEnumerator VerificarInternet()
+    {
+        UnityWebRequest request = new UnityWebRequest("https://google.com");
+
+        yield return request.SendWebRequest();
+
+        if (request.error != null)
+        {
+            net = false;
+        }
+        else
+        {
+            net = true;
+        }
+    }
+
+private IEnumerator VerificarAtualizacoes()
+    {
 
         using (UnityWebRequest request = UnityWebRequest.Get(urlVersoes))
         {

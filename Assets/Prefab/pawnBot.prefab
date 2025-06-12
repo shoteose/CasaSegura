@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fe53db52ce6936b4ca636698d529f6ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53db52ce6936b4ca636698d529f6ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53db52ce6936b4ca636698d529f6ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe53db52ce6936b4ca636698d529f6ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.426555
       objectReference: {fileID: 0}
@@ -81,3 +93,5 @@ MonoBehaviour:
   posicao: 0
   score: 0
   offset: {x: 0, y: 0, z: 0}
+  indiceCor: 0
+  bot: 0
