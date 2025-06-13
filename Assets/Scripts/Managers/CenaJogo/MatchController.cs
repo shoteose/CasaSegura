@@ -15,7 +15,8 @@ public class MatchController : MonoBehaviour
     [Header("Materiais")]
     [SerializeField] private Material[] materiaisPlayers;
 
-
+    [Header("Offset")]
+    [SerializeField] private float raio = 0.6f;
 
     private void Start()
     {
@@ -49,32 +50,9 @@ public class MatchController : MonoBehaviour
     }
     private Vector3 CalcularOffset(int total, int index)
     {
-        float espaco = 0.25f;
-
-        switch (total)
-        {
-            case 1:
-                return Vector3.zero;
-
-            case 2:
-                return new Vector3((index == 0 ? -espaco : espaco), 0, 0);
-
-            case 3:
-            case 4:
-                Vector3[] posicoes = new Vector3[]
-                {
-                new Vector3(-espaco, 0, espaco),
-                new Vector3(espaco, 0, espaco),
-                new Vector3(-espaco, 0, -espaco),
-                new Vector3(espaco, 0, -espaco)
-                };
-                return posicoes[index];
-
-            default:
-                float ang = (360f / total) * index;
-                float radius = 0.8f;
-                return new Vector3(Mathf.Cos(ang * Mathf.Deg2Rad), 0, Mathf.Sin(ang * Mathf.Deg2Rad)) * radius;
-        }
+        float angulo = ((360f / total) * index) + 45;
+        return new Vector3(Mathf.Cos(angulo * Mathf.Deg2Rad), 0, Mathf.Sin(angulo * Mathf.Deg2Rad)) * this.raio;
+        
     }
 
 
@@ -112,6 +90,5 @@ public class MatchController : MonoBehaviour
         
         
     }
-
 
 }

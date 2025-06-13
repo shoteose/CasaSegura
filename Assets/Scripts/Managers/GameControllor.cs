@@ -13,6 +13,7 @@ public class GameControllor : MonoBehaviour
     [SerializeField] private List<Player> jogadores = new List<Player>();
     [SerializeField] private List<int> jogadoresSelecionados = new();
 
+
     private void Awake()
     {
         if (Instance != null && Instance != this)

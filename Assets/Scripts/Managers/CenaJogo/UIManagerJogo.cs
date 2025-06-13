@@ -15,6 +15,14 @@ public class UIManagerJogo : MonoBehaviour
     [SerializeField] private GameObject painelLancarDado;
     [SerializeField] private Button botaoLancarDado;
 
+    [Header("Painel Som")]
+    [SerializeField] private Button botaoSom;
+    [SerializeField] private GameObject SliderSomGO;
+    [SerializeField] private bool counterBotao = false;
+    //[SerializeField] private Slider sliderSom;
+
+
+
     [Header("Painel Pausa")]
     [SerializeField] private Button botaoPausa;
     [SerializeField] private GameObject painelPausa;
@@ -62,6 +70,7 @@ public class UIManagerJogo : MonoBehaviour
 
     private void Start()
     {
+        SliderSomGO.SetActive(false);
         painelPergunta.SetActive(false);
         painelExercicios.SetActive(false);
         HolderTextoTurno.SetActive(false);
@@ -70,8 +79,49 @@ public class UIManagerJogo : MonoBehaviour
         painelPausa.SetActive(false);
         botaoPausa.onClick.AddListener(AbrirPausa);
 
+        //sliderSom = SliderSomGO.GetComponent<Slider>();
+        //sliderSom.onValueChanged.AddListener(value => SetVolume(value));
+
+
+
 
     }
+
+    public void SetVolume(float valor)
+    {
+        SoundFXManager.Instance.SetVolume(valor);
+    }
+
+    private Coroutine fecharSomRoutine;
+
+    public void PainelBotaoSom()
+    {
+        if (fecharSomRoutine != null)
+        {
+            StopCoroutine(fecharSomRoutine);
+            fecharSomRoutine = null;
+        }
+
+        counterBotao = !counterBotao;
+        SliderSomGO.SetActive(counterBotao);
+
+        if (SliderSomGO.activeSelf)
+        {
+            fecharSomRoutine = StartCoroutine(EsperaEFecha());
+        }
+    }
+
+    private IEnumerator EsperaEFecha()
+    {
+        yield return new WaitForSeconds(3f);
+
+        SliderSomGO.SetActive(false);
+        counterBotao = false;
+
+        fecharSomRoutine = null;
+    }
+
+
 
     public void StopLoading()
     {

@@ -8,4 +8,5 @@ public class MenuInicial : MonoBehaviour
         SceneManager.LoadScene("CenaGestao");
     }
 
+
 }

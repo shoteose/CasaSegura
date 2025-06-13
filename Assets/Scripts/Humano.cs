@@ -55,11 +55,13 @@ public class Humano : Player
                 {
                     if (respostaEscolhida.correta)
                     {
+                        SoundFXManager.Instance.Som(true);
                         score++;
                         StartCoroutine(AvancarMaisUmaCasaSePossivel());
                     }
                     else
                     {
+                        SoundFXManager.Instance.Som(false);
                         FimDoTurno();
                     }
                 });

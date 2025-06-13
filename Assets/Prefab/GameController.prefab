@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c07beb49dd08540b98808fc4c93683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanoPrefab: {fileID: 8928620017282621104, guid: 37f3e24ffa1cfe94db8fbea8b573943b, type: 3}
-  botPrefab: {fileID: 8928620017282621104, guid: ffdbd2d8abfa47342a7eef0f0f017184, type: 3}
+  humanoPrefab: {fileID: 7636601603885628096, guid: 1cc250c9b3afbed47932a83555a671e2, type: 3}
+  botPrefab: {fileID: 7636601603885628096, guid: 5eb824ada342d3c419ce4cac1e3e234b, type: 3}
+  jogadores: []
+  jogadoresSelecionados: 
