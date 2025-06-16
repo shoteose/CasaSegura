@@ -43,6 +43,8 @@ public class Bot : Player
                 {
                     
                     StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!"));
+                    SoundFXManager.Instance.Som(true);
+
                     score++;
 
                     int proximaPosicao = posicao + 1;
@@ -59,6 +61,8 @@ public class Bot : Player
                 else
                 {
                     StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} errou!"));
+                    SoundFXManager.Instance.Som(false);
+
                 }
 
             }

@@ -1,172 +1,632 @@
 {
-    "versao": "1",
+    "versao": 2,
     "perguntas": [
         {
-            "questao": "Qual é a capital da França?",
+            "questao": "Qual é a principal causa de queda de pessoas idosas dentro de casa?",
             "respostas": [
                 {
-                    "texto": "Paris",
-                    "correta": true
-                },
-                {
-                    "texto": "Londres",
+                    "texto": "Falta de alimentação adequada.",
                     "correta": false
                 },
                 {
-                    "texto": "Berlim",
+                    "texto": "Obstáculos como tapetes soltos e objetos no chão.",
+                    "correta": true
+                },
+                {
+                    "texto": "Excesso de exercícios físicos.",
+                    "correta": false
+                },
+                {
+                    "texto": "Idosos que moram sozinhos.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Qual é a moeda do Japão?",
+            "questao": "Qual é o melhor tipo de calçado para prevenir quedas de pessoas idosas no domicílio?",
             "respostas": [
                 {
-                    "texto": "Yen",
-                    "correta": true
-                },
-                {
-                    "texto": "Dólar",
+                    "texto": "Sandálias abertas.",
                     "correta": false
                 },
                 {
-                    "texto": "Euro",
+                    "texto": "Chinelos com sola de borracha.",
+                    "correta": false
+                },
+                {
+                    "texto": "Sapatos fechados com sola antiderrapante.",
+                    "correta": true
+                },
+                {
+                    "texto": "Meias antiderrapantes.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Qual é o maior planeta do Sistema Solar?",
+            "questao": "Qual destas medidas é mais importante para evitar quedas na Casa de banho?",
             "respostas": [
                 {
-                    "texto": "Júpiter",
-                    "correta": true
-                },
-                {
-                    "texto": "Terra",
+                    "texto": "Colocar tapetes felpudos no chão.",
                     "correta": false
                 },
                 {
-                    "texto": "Marte",
+                    "texto": "Instalar barras de apoio e tapetes antiderrapantes no chuveiro.",
+                    "correta": true
+                },
+                {
+                    "texto": "Manter a casa de banho seca usando toalhas no piso.",
+                    "correta": false
+                },
+                {
+                    "texto": "Usar cortinas de chuveiro compridas.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Quem escreveu 'Dom Quixote'?",
+            "questao": "Como é que a iluminação adequada pode ajudar a prevenir quedas?",
             "respostas": [
                 {
-                    "texto": "Miguel de Cervantes",
-                    "correta": true
-                },
-                {
-                    "texto": "William Shakespeare",
+                    "texto": "Evita reflexos que podem confundir a pessoa idosa.",
                     "correta": false
                 },
                 {
-                    "texto": "Mark Twain",
+                    "texto": "Facilita a visualização de obstáculos.",
+                    "correta": true
+                },
+                {
+                    "texto": "Ajuda na decoração do ambiente.",
+                    "correta": false
+                },
+                {
+                    "texto": "Economiza energia elétrica.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Qual é o maior oceano do mundo?",
+            "questao": "Por que é importante remover tapetes do caminho da pessoa idosa?",
             "respostas": [
                 {
-                    "texto": "Oceano Pacífico",
+                    "texto": "Para evitar que a pessoa idosa tropece ou escorregue.",
                     "correta": true
                 },
                 {
-                    "texto": "Oceano Atlântico",
+                    "texto": "Para facilitar a limpeza do chão.",
                     "correta": false
                 },
                 {
-                    "texto": "Oceano Índico",
+                    "texto": "Para ampliar o espaço visual da casa.",
+                    "correta": false
+                },
+                {
+                    "texto": "Para diminuir a quantidade de pó.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Quem pintou a Mona Lisa?",
+            "questao": "Qual é a posição ideal para os móveis dentro de casa?",
             "respostas": [
                 {
-                    "texto": "Leonardo da Vinci",
+                    "texto": "De forma que deixem os corredores livres e sem obstruções.",
                     "correta": true
                 },
                 {
-                    "texto": "Pablo Picasso",
+                    "texto": "Próximos uns dos outros para maior apoio.",
                     "correta": false
                 },
                 {
-                    "texto": "Vincent van Gogh",
+                    "texto": "De forma espalhada para decorar o ambiente.",
+                    "correta": false
+                },
+                {
+                    "texto": "Encostados nas paredes.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Qual é o menor país do mundo?",
+            "questao": "O uso de barras de apoio é indicado, principalmente, em que locais?",
             "respostas": [
                 {
-                    "texto": "Vaticano",
-                    "correta": true
-                },
-                {
-                    "texto": "Mônaco",
+                    "texto": "Corredores e cozinha.",
                     "correta": false
                 },
                 {
-                    "texto": "San Marino",
+                    "texto": "Casa de banho e escadas.",
+                    "correta": true
+                },
+                {
+                    "texto": "Quartos e sala de estar.",
+                    "correta": false
+                },
+                {
+                    "texto": "Varanda e garagem.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Qual é o maior animal terrestre?",
+            "questao": "Qual destas práticas é a mais indicada para a pessoa idosa se levantar da cama?",
             "respostas": [
                 {
-                    "texto": "Elefante Africano",
-                    "correta": true
-                },
-                {
-                    "texto": "Girafa",
+                    "texto": "Levantar-se rapidamente para não sentir frio.",
                     "correta": false
                 },
                 {
-                    "texto": "Rinoceronte",
+                    "texto": "Sentar-se na beira da cama e esperar alguns segundos.",
+                    "correta": true
+                },
+                {
+                    "texto": "Colocar um apoio para subir mais rápido.",
+                    "correta": false
+                },
+                {
+                    "texto": "Levantar-se sem parar na beira.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Em que ano o homem pisou a Lua pela primeira vez?",
+            "questao": "Para as pessoas idosas, porque é recomendado manter os objetos de uso frequente ao seu alcance?",
             "respostas": [
                 {
-                    "texto": "1969",
+                    "texto": "Para evitar que eles precisem se esticar ou subir em cadeiras.",
                     "correta": true
                 },
                 {
-                    "texto": "1959",
+                    "texto": "Para facilitar a organização da casa.",
                     "correta": false
                 },
                 {
-                    "texto": "1979",
+                    "texto": "Para diminuir a desordem no ambiente.",
+                    "correta": false
+                },
+                {
+                    "texto": "Para economizar espaço.",
                     "correta": false
                 }
             ]
         },
         {
-            "questao": "Quem foi o primeiro presidente dos Estados Unidos?",
+            "questao": "Qual destes tipos de piso é o mais indicado para reduzir o risco de quedas?",
             "respostas": [
                 {
-                    "texto": "George Washington",
-                    "correta": true
-                },
-                {
-                    "texto": "Abraham Lincoln",
+                    "texto": "Piso encerado e brilhante.",
                     "correta": false
                 },
                 {
-                    "texto": "Thomas Jefferson",
+                    "texto": "Piso em mármore.",
+                    "correta": false
+                },
+                {
+                    "texto": "Piso antiderrapante.",
+                    "correta": true
+                },
+                {
+                    "texto": "Piso em cerâmica lisa.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Em qual destes locais é recomendado ter boa iluminação durante a noite?",
+            "respostas": [
+                {
+                    "texto": "Sala de estar.",
+                    "correta": false
+                },
+                {
+                    "texto": "Corredores e casa de banho.",
+                    "correta": true
+                },
+                {
+                    "texto": "Cozinha.",
+                    "correta": false
+                },
+                {
+                    "texto": "Área externa.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Porque é que o uso de bengalas e andarilhos pode ajudar na prevenção de quedas?",
+            "respostas": [
+                {
+                    "texto": "Proporciona maior equilíbrio e apoio ao caminhar.",
+                    "correta": true
+                },
+                {
+                    "texto": "Fortalece a musculatura das mãos.",
+                    "correta": false
+                },
+                {
+                    "texto": "Ajuda a melhorar a postura.",
+                    "correta": false
+                },
+                {
+                    "texto": "Dá mais segurança visual.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Porque é que as pessoas idosas devem evitar subir em cadeiras ou bancos?",
+            "respostas": [
+                {
+                    "texto": "Para evitar a dor nas articulações.",
+                    "correta": false
+                },
+                {
+                    "texto": "Porque aumenta muito o risco de quedas.",
+                    "correta": true
+                },
+                {
+                    "texto": "Para evitar desgaste do mobiliário.",
+                    "correta": false
+                },
+                {
+                    "texto": "Para manter a postura correta.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Como é que a atividade física regular pode ajudar a prevenir quedas de pessoas idosas?",
+            "respostas": [
+                {
+                    "texto": "Aumentando o peso corporal.",
+                    "correta": false
+                },
+                {
+                    "texto": "Fortalecendo os músculos e melhorando o equilíbrio.",
+                    "correta": true
+                },
+                {
+                    "texto": "Reduzindo o cansaço nas atividades diárias.",
+                    "correta": false
+                },
+                {
+                    "texto": "Melhorando a circulação.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Quais são os tipos de móveis que devem ser evitados na casa de uma pessoa idosa?",
+            "respostas": [
+                {
+                    "texto": "Móveis leves e fáceis de mover.",
+                    "correta": false
+                },
+                {
+                    "texto": "Móveis com pontas afiadas e sem estabilidade.",
+                    "correta": true
+                },
+                {
+                    "texto": "Móveis baixos e largos.",
+                    "correta": false
+                },
+                {
+                    "texto": "Móveis com rodas.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Porque é que a casa de banho é um dos locais mais propenso a quedas?",
+            "respostas": [
+                {
+                    "texto": "Por ser um ambiente molhado e escorregadio.",
+                    "correta": true
+                },
+                {
+                    "texto": "Por ser um local isolado.",
+                    "correta": false
+                },
+                {
+                    "texto": "Por ser um ambiente pequeno.",
+                    "correta": false
+                },
+                {
+                    "texto": "Por conter espelhos.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é a melhor opção para tapetes em casa com as pessoas idosas?",
+            "respostas": [
+                {
+                    "texto": "Tapetes com base antiderrapante e bem fixos ao chão.",
+                    "correta": true
+                },
+                {
+                    "texto": "Tapetes leves e decorativos.",
+                    "correta": false
+                },
+                {
+                    "texto": "Tapetes felpudos e confortáveis.",
+                    "correta": false
+                },
+                {
+                    "texto": "Tapetes pequenos e fáceis de remover",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é a prática mais indicada para o idoso se deslocar pela casa?",
+            "respostas": [
+                {
+                    "texto": "Caminhar devagar e sempre próximo aos apoios.",
+                    "correta": true
+                },
+                {
+                    "texto": "Caminhar de maneira rápida para reduzir o tempo de esforço.",
+                    "correta": false
+                },
+                {
+                    "texto": "Não segurar nos móveis para melhorar o equilíbrio.",
+                    "correta": false
+                },
+                {
+                    "texto": "Deslocar-se sempre descalço.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "O que pode ser feito para evitar quedas ao entrar em casa em dias de chuva?",
+            "respostas": [
+                {
+                    "texto": "Colocar um tapete de borracha apenas na entrada.",
+                    "correta": false
+                },
+                {
+                    "texto": "Secar os pés e sapatos ao entrar.",
+                    "correta": true
+                },
+                {
+                    "texto": "Usar chinelos antiderrapantes o tempo todo.",
+                    "correta": false
+                },
+                {
+                    "texto": "Andar descalço até secar o chão.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Que tipo de exercício é recomendado para fortalecer o equilíbrio?",
+            "respostas": [
+                {
+                    "texto": "Exercícios de resistência.",
+                    "correta": false
+                },
+                {
+                    "texto": "Exercícios de alongamento e fortalecimento.",
+                    "correta": true
+                },
+                {
+                    "texto": "Exercícios aeróbicos.",
+                    "correta": false
+                },
+                {
+                    "texto": "Exercícios de alta intensidade.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é o motivo porque as pessoas idosas devem evitar se mover em ambientes escuros?",
+            "respostas": [
+                {
+                    "texto": "Porque dificulta a perceção dos obstáculos.",
+                    "correta": true
+                },
+                {
+                    "texto": "Porque aumenta o risco de dor nas articulações.",
+                    "correta": false
+                },
+                {
+                    "texto": "Porque pode prejudicar a visão a longo prazo.",
+                    "correta": false
+                },
+                {
+                    "texto": "Porque a escuridão diminui a orientação.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Como devem ser as cadeiras para as pessoas idosas usarem com segurança?",
+            "respostas": [
+                {
+                    "texto": "Cadeiras firmes, com braços e sem rodas.",
+                    "correta": true
+                },
+                {
+                    "texto": "Cadeiras leves e móveis.",
+                    "correta": false
+                },
+                {
+                    "texto": "Cadeiras baixas e largas.",
+                    "correta": false
+                },
+                {
+                    "texto": "Cadeiras altas e com encosto reclinável.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é a prática correta para as pessoas idosas descerem escadas?",
+            "respostas": [
+                {
+                    "texto": "Descer de costas para o corrimão.",
+                    "correta": false
+                },
+                {
+                    "texto": "Segurar o corrimão e descer devagar, de frente.",
+                    "correta": true
+                },
+                {
+                    "texto": "Descer pulando degraus para ir mais rápido.",
+                    "correta": false
+                },
+                {
+                    "texto": "Descer sem segurar em nada.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é a função de um corrimão instalado nas escadas?",
+            "respostas": [
+                {
+                    "texto": "Apenas decorativa.",
+                    "correta": false
+                },
+                {
+                    "texto": "Proporcionar apoio e estabilidade ao subir e descer.",
+                    "correta": true
+                },
+                {
+                    "texto": "Ajudar na limpeza das escadas.",
+                    "correta": false
+                },
+                {
+                    "texto": "Proteger o ambiente de acidentes.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é a posição ideal para a pessoa idosa apanhar algo do chão?",
+            "respostas": [
+                {
+                    "texto": "Dobrar as costas para apanhar.",
+                    "correta": false
+                },
+                {
+                    "texto": "Ajoelhar ou pedir ajuda.",
+                    "correta": true
+                },
+                {
+                    "texto": "Usar uma bengala para apanhar.",
+                    "correta": false
+                },
+                {
+                    "texto": "Sentar-se no chão.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual é o benefício de um ambiente organizado para as pessoas idosas?",
+            "respostas": [
+                {
+                    "texto": "Deixar a casa mais bonita.",
+                    "correta": false
+                },
+                {
+                    "texto": "Facilitar a movimentação e evitar quedas.",
+                    "correta": true
+                },
+                {
+                    "texto": "Reduzir o tempo de limpeza.",
+                    "correta": false
+                },
+                {
+                    "texto": "Melhorar a qualidade do ar.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "O que deve ser feito na organização de fios e cabos em casa?",
+            "respostas": [
+                {
+                    "texto": "Deixar os fios fixos nas paredes.",
+                    "correta": false
+                },
+                {
+                    "texto": "Usar abraçadeiras para organizar os fios.",
+                    "correta": false
+                },
+                {
+                    "texto": "Deixar fios espalhados pelo chão.",
+                    "correta": true
+                },
+                {
+                    "texto": "Colocar os fios atrás dos móveis.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Como deve a pessoa idosa ser incentivado a cuidar da sua própria segurança?",
+            "respostas": [
+                {
+                    "texto": "Orientando-o a usar apoio e a se mover com calma.",
+                    "correta": true
+                },
+                {
+                    "texto": "Deixando-o caminhar livremente para manter a independência.",
+                    "correta": false
+                },
+                {
+                    "texto": "Proibindo-o de se mover sem ajuda.",
+                    "correta": false
+                },
+                {
+                    "texto": "Ensinando-o a ser rápido.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Quais os  alimentos mais importantes para a saúde dos ossos da pessoa idosa?",
+            "respostas": [
+                {
+                    "texto": "Hidratos de Carbono.",
+                    "correta": false
+                },
+                {
+                    "texto": "Alimentos ricos em vitamina C.",
+                    "correta": false
+                },
+                {
+                    "texto": "Alimentos ricos em cálcio e vitamina D.",
+                    "correta": true
+                },
+                {
+                    "texto": "Alimentos ricos em açúcar.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual destas recomendações é a ideal para a prevenção de quedas?",
+            "respostas": [
+                {
+                    "texto": "Fazer pequenas mudanças no ambiente para reduzir obstáculos e proporcionar apoio.",
+                    "correta": true
+                },
+                {
+                    "texto": "Restringir totalmente a movimentação da pessoa idosa.",
+                    "correta": false
+                },
+                {
+                    "texto": "Mudar a pessoa idosa de quarto com frequência.",
+                    "correta": false
+                },
+                {
+                    "texto": "Incentivar o idoso a caminhar sem apoios para fortalecer o equilíbrio.",
                     "correta": false
                 }
             ]

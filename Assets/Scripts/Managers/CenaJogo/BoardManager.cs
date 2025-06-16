@@ -25,10 +25,19 @@ public class BoardManager : MonoBehaviour
     private IEnumerator Setup()
     {
 
-        while (!ApiManager.AtualizacaoTerminada && ApiManager.net)
+        float timeout = 10f; 
+        float timer = 0f;
+
+        while (!ApiManager.AtualizacaoTerminada && ApiManager.net && timer < timeout)
         {
-            Debug.Log("esperando");
+            Debug.Log("esperando...");
+            timer += Time.deltaTime;
             yield return null;
+        }
+
+        if (!ApiManager.AtualizacaoTerminada)
+        {
+            Debug.LogWarning("Setup da API não terminou dentro do tempo. Continuando com dados locais.");
         }
 
 

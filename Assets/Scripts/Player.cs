@@ -9,6 +9,7 @@ public abstract class Player : MonoBehaviour
     public Vector3 offset = new Vector3(0, 0, 0);
     public int indiceCor;
     public bool bot;
+    public Texture texturaPersonagem;
 
     protected MatchController matchController;
     protected BoardManager boardManager;
@@ -25,19 +26,19 @@ public abstract class Player : MonoBehaviour
                     _nome = "Vermelho";
                 break;
             case 1:
-                    _nome = "Amarelo";
+                    _nome = "Laranja";
                     break;
             case 2:
-                    _nome = "Verde";
+                    _nome = "Amarelo";
                     break;
             case 3:
-                    _nome = "Rosa";
+                    _nome = "Verde";
                     break;
             case 4:
                     _nome = "Azul Ciano";
                     break;
             case 5:
-                    _nome = "Ratatui";
+                    _nome = "Rosa";
                     break;
         }
 

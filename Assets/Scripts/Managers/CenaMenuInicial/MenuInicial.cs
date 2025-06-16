@@ -5,6 +5,7 @@ public class MenuInicial : MonoBehaviour
 {
     public void MenuGestaoPlayers()
     {
+        
         SceneManager.LoadScene("CenaGestao");
     }
 

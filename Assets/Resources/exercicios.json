@@ -1,10 +1,53 @@
 {
-    "versao": "1",
+    "versao": 1,
     "exercicios": [
         {
-            "exercicio": " Mete as mãos no ar",
-            "url_imagem": "https://acrabstracts.org/wp-content/uploads/2018/08/649_Paper_70785_abstract_109642_0.png"
-
+            "exercicio": "Sentar direito – mãos ao peito",
+            "url_imagem": "https://i.ibb.co/TD3zbTx8/1.jpg"
+        },
+        {
+            "exercicio": "Mãos para cima – palmas para cima",
+            "url_imagem": "https://i.ibb.co/f3p5hZN/2.jpg"
+        },
+        {
+            "exercicio": "Alongar lado do pescoço",
+            "url_imagem": "https://i.ibb.co/fd0WY4wS/3.jpg"
+        },
+        {
+            "exercicio": "Inclinar lado – olhar para cima",
+            "url_imagem": "https://i.ibb.co/FbwfKzHT/4.jpg"
+        },
+        {
+            "exercicio": "Inclinar lado – olhar para baixo",
+            "url_imagem": "https://i.ibb.co/XfxnTr3h/5.jpg"
+        },
+        {
+            "exercicio": "Torção sentado – ambos os lados",
+            "url_imagem": "https://i.ibb.co/hJ6cgLzm/6.jpg"
+        },
+        {
+            "exercicio": "Braços de águia – ombros",
+            "url_imagem": "https://i.ibb.co/B5fPCpz1/7.jpg"
+        },
+        {
+            "exercicio": "Coração aberto – braços atrás",
+            "url_imagem": "https://i.ibb.co/mrf4tZ4N/8.jpg"
+        },
+        {
+            "exercicio": "Dobra frontal – ombros",
+            "url_imagem": "https://i.ibb.co/4w5xFfK9/9.jpg"
+        },
+        {
+            "exercicio": "Dobra frontal – pernas abertas",
+            "url_imagem": "https://i.ibb.co/C5D3WPdd/10.jpg"
+        },
+        {
+            "exercicio": "Dobra lateral – pernas abertas",
+            "url_imagem": "https://i.ibb.co/8DwMb170/11.jpg"
+        },
+        {
+            "exercicio": "Sway – pernas abertas",
+            "url_imagem": "https://i.ibb.co/qMh1cjCH/12.jpg"
         }
     ]
 }

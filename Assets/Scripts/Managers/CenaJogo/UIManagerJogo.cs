@@ -44,7 +44,8 @@ public class UIManagerJogo : MonoBehaviour
     [SerializeField] private GameObject painelGameOver;
     [SerializeField] private TextMeshProUGUI textoGameOver;
     [SerializeField] private Button[] botoesGameOver;
-    
+    [SerializeField] private RawImage TextureGameOverWinner;
+
 
     [Header("Pergunta")]
     [SerializeField] private GameObject painelPergunta;
@@ -154,12 +155,14 @@ public class UIManagerJogo : MonoBehaviour
     {
         Debug.Log("TA AQUI CARALHO");
         painelGameOver.SetActive(true);
+        TextureGameOverWinner.texture = player.texturaPersonagem;
         textoGameOver.text = $"Parabéns o jogador {player.nome} ganhou!!";
        
     }
 
     private void AbrirPausa()
     {
+        
         Time.timeScale = 0f;
         painelPausa.SetActive(true);
 
@@ -181,12 +184,14 @@ public class UIManagerJogo : MonoBehaviour
 
     public void RestartGame()
     {
+        
         GameControllor.Instance.RestartGame();
 
     }
 
     public void VoltarMenuPrincipal()
     {
+        
         GameControllor.Instance.VoltarMenuPrincipal();
     }
 
@@ -194,6 +199,8 @@ public class UIManagerJogo : MonoBehaviour
     {
         int numeroGiros = UnityEngine.Random.Range(8, 16);
         int totalFaces = imagensDados.Length;
+
+        SoundFXManager.Instance.Dados();
 
         for (int i = 0; i < numeroGiros; i++)
         {
@@ -238,10 +245,41 @@ public class UIManagerJogo : MonoBehaviour
     public IEnumerator MostrarTextoTurno(Player playerVez)
     {
         HolderTextoTurno.SetActive(true);
-        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = "É a vez do " + playerVez.nome;
-        yield return new WaitForSeconds(1.5f);
+        string nome = playerVez.nome;
+
+        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = "É a vez do " + nome;
+
+        Color cor = ObterCorPorNome(nome);
+
+        Image background = HolderTextoTurno.GetComponentInChildren<Image>();
+        if (background != null) background.color = cor;
+
+        yield return new WaitForSeconds(3f);
         HolderTextoTurno.SetActive(false);
     }
+
+
+    private Color ObterCorPorNome(string nome)
+    {
+        nome = nome.ToLower();
+
+        if (nome.Contains("vermelho"))
+            return Color.red;
+        else if (nome.Contains("laranja"))
+            return new Color(1f, 0.5f, 0f);
+        else if (nome.Contains("amarelo"))
+            return Color.yellow;
+        else if (nome.Contains("verde"))
+            return Color.green;
+        else if (nome.Contains("azul ciano"))
+            return Color.cyan;
+        else if (nome.Contains("rosa"))
+            return new Color(1f, 0.4f, 0.7f);
+        else
+            return Color.black;
+    }
+
+
 
     public IEnumerator MostrarExercicio(string descricao, string url)
     {

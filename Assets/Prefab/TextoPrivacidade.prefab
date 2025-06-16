@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 50}
+  m_SizeDelta: {x: 0, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8794177702743238220
 CanvasRenderer:
@@ -65,11 +65,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nota de Privacidade:\n\tA participa\xE7\xE3o neste question\xE1rio \xE9
-    totalmente opcional. \n\tTodas as respostas fornecidas s\xE3o recolhidas de forma
-    an\xF3nima e utilizadas apenas para fins estat\xEDsticos e de melhoria do projeto.
-    \n\tNenhuma informa\xE7\xE3o pessoal ser\xE1 partilhada ou usada para identificar
-    os participantes."
+  m_text: "Nota de Privacidade:\n1) A participa\xE7\xE3o neste question\xE1rio \xE9
+    totalmente opcional. \n2) Todas as respostas fornecidas s\xE3o recolhidas de
+    forma an\xF3nima e utilizadas apenas para fins estat\xEDsticos e de melhoria
+    do projeto. \n3) Nenhuma informa\xE7\xE3o pessoal ser\xE1 partilhada ou usada
+    para identificar os participantes."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8976961830980245acea590b3f5f0c0, type: 2}
   m_sharedMaterial: {fileID: -7061117588391746634, guid: e8976961830980245acea590b3f5f0c0, type: 2}

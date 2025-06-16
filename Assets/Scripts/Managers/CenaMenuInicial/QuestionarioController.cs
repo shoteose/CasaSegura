@@ -1,10 +1,12 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestionarioController : MonoBehaviour
 {
     [Header("Referências UI")]
     public GameObject botaoQuestionario;
+    //public GameObject botaoEnviarPai;
     public GameObject botaoEnviar;
 
     public GameObject panelQuestionario;
@@ -19,6 +21,9 @@ public class QuestionarioController : MonoBehaviour
     void Start()
     {
         StartCoroutine(CarregarQuestionario());
+
+       // Button[] botoesFilhos = botaoEnviarPai.GetComponentsInChildren<Button>();
+       // botaoEnviar = botoesFilhos[0].gameObject;
     }
 
     private IEnumerator CarregarQuestionario()
@@ -65,8 +70,8 @@ public class QuestionarioController : MonoBehaviour
         else
         {
 
-            bool deveExibir = DadosPlayer.DeveExibirQuestionario(questionario.versao);
-            botaoQuestionario.SetActive(deveExibir);
+            //bool deveExibir = DadosPlayer.DeveExibirQuestionario(questionario.versao);
+            botaoQuestionario.SetActive(true);
             panelQuestionario.SetActive(false);
 
         }
@@ -76,6 +81,7 @@ public class QuestionarioController : MonoBehaviour
 
     public void AbrirQuestionario()
     {
+        
         if (questionario == null) return;
 
         botaoQuestionario.SetActive(false);
@@ -85,6 +91,7 @@ public class QuestionarioController : MonoBehaviour
 
     public void FecharQuestionario()
     {
+        
         if (questionario == null) return;
 
         panelQuestionario.SetActive(false);
@@ -94,6 +101,7 @@ public class QuestionarioController : MonoBehaviour
 
     public void EnviarRespostas()
     {
+        
         if (questionario == null || !questionarioUI.TodasRespondidas(questionario))
         {
             Debug.LogWarning("Falta responder");

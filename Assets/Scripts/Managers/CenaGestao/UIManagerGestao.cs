@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class GestaoPlayerCena : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class GestaoPlayerCena : MonoBehaviour
     [SerializeField] private GameObject paiPainel;
 
     [Header("Jogadores Ativos")]
-    [SerializeField] private List<int> jogadoresAtivos = new List<int>();
+    [SerializeField] private List<PlayerInfo> jogadoresAtivos = new List<PlayerInfo>();
 
     [Header("Numero de Bots")]
     [SerializeField] private int nrBots;
@@ -58,32 +59,65 @@ public class GestaoPlayerCena : MonoBehaviour
         {
             Image img = botoesRemover[i].GetComponent<Image>();
             Color cor = img.color;
-            cor.a = jogadoresAtivos.Contains(i) ? 1f : 0.3f;
+
+            bool existe = false;
+            foreach (var j in jogadoresAtivos)
+            {
+                if (j.indice == i)
+                {
+                    existe = true;
+                    break;
+                }
+            }
+            cor.a = existe ? 1f : 0.3f;
+
+
             img.color = cor;
         }
     }
 
     private void AdicionarJogador(int index)
     {
-        if (jogadoresAtivos.Contains(index)) return;
+        foreach (var j in jogadoresAtivos)
+        {
+            if (j.indice == index)
+                return;
+        }
 
-        imagens[index].texture = texturasAtivas[index];
+        int nrTextura = Random.Range(0, texturasAtivas.Length);
+        Texture texturaSelecionada = texturasAtivas[nrTextura];
+
+        imagens[index].texture = texturaSelecionada;
         imagens[index].GetComponent<Button>().enabled = false;
 
-        jogadoresAtivos.Add(index);
+        jogadoresAtivos.Add(new PlayerInfo { indice = index, textura = texturaSelecionada });
+
         AtualizarEstadoBotaoJogar();
     }
 
+
+
     private void RemoverJogador(int index)
     {
-        if (!jogadoresAtivos.Contains(index)) return;
+        PlayerInfo jogador = null;
+        foreach (var j in jogadoresAtivos)
+        {
+            if (j.indice == index)
+            {
+                jogador = j;
+                break;
+            }
+        }
+
+        if (jogador == null) return;
 
         imagens[index].texture = texturaAdicionar;
         imagens[index].GetComponent<Button>().enabled = true;
 
-        jogadoresAtivos.Remove(index);
+        jogadoresAtivos.Remove(jogador);
         AtualizarEstadoBotaoJogar();
     }
+
 
     private void AtualizarEstadoBotaoJogar()
     {
@@ -92,7 +126,8 @@ public class GestaoPlayerCena : MonoBehaviour
 
     private void Jogar()
     {
-        if(jogadoresAtivos.Count == 1)
+        
+        if (jogadoresAtivos.Count == 1)
         {
             Debug.Log("SOU SO UM MALUQUINHO");
             paiPainel.SetActive(true);
@@ -100,7 +135,7 @@ public class GestaoPlayerCena : MonoBehaviour
         }
         else
         {
-            GameControllor.Instance.DefinirJogadoresPorIndice(jogadoresAtivos);
+            GameControllor.Instance.DefinirJogadoresPorInfo(jogadoresAtivos);
             GameControllor.Instance.Jogar();
         }
 
@@ -108,24 +143,52 @@ public class GestaoPlayerCena : MonoBehaviour
 
     private void Voltar()
     {
+        
         GameControllor.Instance.VoltarMenuPrincipal();
     }
 
     private void JogarSozinho()
     {
-        GameControllor.Instance.DefinirJogadoresPorIndice(jogadoresAtivos);
+        
+        GameControllor.Instance.DefinirJogadoresPorInfo(jogadoresAtivos);
         GameControllor.Instance.Jogar();
     }
 
     private void JogarContraPc()
     {
-        for(int i = 0; i < nrBots; i++)
+        for (int i = 0; i < nrBots; i++)
         {
-            jogadoresAtivos.Add(i + 4);
+            int indiceBot = 4 + i;
+
+            bool jaExiste = false;
+            foreach (var j in jogadoresAtivos)
+            {
+                if (j.indice == indiceBot)
+                {
+                    jaExiste = true;
+                    break;
+                }
+            }
+
+            if (jaExiste) continue;
+
+            int nrTextura = Random.Range(0, texturasAtivas.Length);
+            Texture texturaSelecionada = texturasAtivas[nrTextura];
+
+            jogadoresAtivos.Add(new PlayerInfo { indice = indiceBot, textura = texturaSelecionada });
         }
- 
-        GameControllor.Instance.DefinirJogadoresPorIndice(jogadoresAtivos);
+
+        GameControllor.Instance.DefinirJogadoresPorInfo(jogadoresAtivos);
         GameControllor.Instance.Jogar();
     }
+
+
+
+}
+
+public class PlayerInfo
+{
+    public int indice;
+    public Texture textura;
 
 }

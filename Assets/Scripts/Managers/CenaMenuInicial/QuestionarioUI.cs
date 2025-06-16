@@ -8,6 +8,7 @@ public class QuestionarioUI : MonoBehaviour
     [Header("Referencias UI")]
     public RectTransform contentPanel;
     public GameObject textoPrivacidade;
+    public GameObject botoes;
     public GameObject prefabInputField;
     public GameObject prefabDropdown;
 
@@ -32,6 +33,9 @@ public class QuestionarioUI : MonoBehaviour
                     break;
             }
         }
+
+        //Instantiate(botoes, contentPanel);
+
     }
 
     private void LimparFormulario()

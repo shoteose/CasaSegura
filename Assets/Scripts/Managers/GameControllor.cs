@@ -11,7 +11,7 @@ public class GameControllor : MonoBehaviour
     [SerializeField] private GameObject botPrefab;
 
     [SerializeField] private List<Player> jogadores = new List<Player>();
-    [SerializeField] private List<int> jogadoresSelecionados = new();
+    [SerializeField] private List<PlayerInfo> jogadoresSelecionados = new();
 
 
     private void Awake()
@@ -26,35 +26,27 @@ public class GameControllor : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void DefinirJogadoresPorIndice(List<int> lista)
+    public void DefinirJogadoresPorInfo(List<PlayerInfo> lista)
     {
-        jogadoresSelecionados = new List<int>(lista);
+        jogadoresSelecionados = new List<PlayerInfo>(lista);
     }
 
     public List<Player> InstanciarJogadores()
     {
         jogadores.Clear();
 
-        foreach (int index in jogadoresSelecionados)
+        foreach (PlayerInfo info in jogadoresSelecionados)
         {
-            GameObject prefab;
-
-            if (index != 4)
-            {
-                prefab = humanoPrefab;
-            }
-            else
-            {
-                prefab = botPrefab;
-            }
+            GameObject prefab = (info.indice != 4) ? humanoPrefab : botPrefab;
 
             Player p = Instantiate(prefab).GetComponent<Player>();
-            //p.nome = $"Jogador {index + 1}";
-            p.indiceCor = index;
+            p.indiceCor = info.indice;
             p.posicao = 0;
+            p.texturaPersonagem = info.textura; 
 
             jogadores.Add(p);
         }
+
 
         return jogadores;
     }

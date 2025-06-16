@@ -9,6 +9,9 @@ public class SoundFXManager : MonoBehaviour
     [SerializeField] private AudioSource soundFXObject;
     [SerializeField] private AudioClip correto;
     [SerializeField] private AudioClip errado;
+    [SerializeField] private AudioClip click;
+    [SerializeField] private AudioClip dados;
+
 
     [SerializeField] private float volume = 1.0f;
 
@@ -39,6 +42,32 @@ public class SoundFXManager : MonoBehaviour
         Destroy(audioSource.gameObject, duracaoClip );
 
 
+    }
+
+    public void Click()
+    {
+        AudioSource audioSource = Instantiate(soundFXObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        audioSource.clip = this.click;
+
+        audioSource.volume = this.volume;
+        audioSource.Play();
+        float duracaoClip = audioSource.clip.length;
+
+        Destroy(audioSource.gameObject, duracaoClip);
+    }
+
+    public void Dados()
+    {
+        AudioSource audioSource = Instantiate(soundFXObject, new Vector3(0, 0, 0), Quaternion.identity);
+
+        audioSource.clip = this.dados;
+
+        audioSource.volume = this.volume;
+        audioSource.Play();
+        float duracaoClip = audioSource.clip.length;
+
+        Destroy(audioSource.gameObject, duracaoClip);
     }
 
     public void SetVolume(float volume)

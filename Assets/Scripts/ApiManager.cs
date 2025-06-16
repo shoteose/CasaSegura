@@ -23,8 +23,8 @@ public class ApiManager : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(VerificarInternet());
-        StartCoroutine(VerificarAtualizacoes());
+        StartCoroutine(Setup());
+     
     }
 
     private IEnumerator Setup()
@@ -55,9 +55,8 @@ public class ApiManager : MonoBehaviour
         }
     }
 
-private IEnumerator VerificarAtualizacoes()
+    private IEnumerator VerificarAtualizacoes()
     {
-
         using (UnityWebRequest request = UnityWebRequest.Get(urlVersoes))
         {
             yield return request.SendWebRequest();
@@ -65,6 +64,7 @@ private IEnumerator VerificarAtualizacoes()
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log("Falha ao sacar as versões: " + request.error);
+                AtualizacaoTerminada = true;
                 yield break;
             }
 
@@ -74,6 +74,7 @@ private IEnumerator VerificarAtualizacoes()
             if (versoes == null)
             {
                 Debug.Log("Falha ao desserializar as versões.");
+                AtualizacaoTerminada = true;
                 yield break;
             }
 
@@ -86,14 +87,14 @@ private IEnumerator VerificarAtualizacoes()
             if (versoes.questionario > DadosPlayer.GetVersaoQuestionario())
                 yield return StartCoroutine(DownloadEAtualizar(nomeArquivoQuestionario, urlQuestionario, versoes.questionario, DadosPlayer.SetVersaoQuestionario));
 
-
+            Debug.Log("Versões atualizadas com sucesso.");
             Debug.Log(versoes.questionario + " " + versoes.exercicios + " " + versoes.perguntas);
             Debug.Log(DadosPlayer.GetVersaoQuestionario() + " " + DadosPlayer.GetVersaoExercicios() + " " + DadosPlayer.GetVersaoPerguntas());
-
         }
-        AtualizacaoTerminada = true;
 
+        AtualizacaoTerminada = true;
     }
+
 
     private IEnumerator DownloadEAtualizar(string nomeArquivo, string url, int versaoNova, System.Action<int> setVersaoCallback)
     {
