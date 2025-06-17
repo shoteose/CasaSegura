@@ -142,13 +142,18 @@ public class UIManagerJogo : MonoBehaviour
         });
     }
 
-    public IEnumerator EditarTextoTurno(string mens)
+    public IEnumerator EditarTextoTurno(string mens, Color cor)
     {
         HolderTextoTurno.SetActive(true);
+        HolderTextoTurno.GetComponentInChildren<Image>().color = Color.black;
+
         HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = mens;
+        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().color = cor;
 
         yield return new WaitForSeconds(1f);
         HolderTextoTurno.SetActive(false);
+        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
+
     }
 
     public void MostrarPainelGameOver(Player player)
@@ -156,6 +161,8 @@ public class UIManagerJogo : MonoBehaviour
         Debug.Log("TA AQUI CARALHO");
         painelGameOver.SetActive(true);
         TextureGameOverWinner.texture = player.texturaPersonagem;
+        Color cor = ObterCorPorNome(player.nome);
+        textoGameOver.color = cor;
         textoGameOver.text = $"Parabéns o jogador {player.nome} ganhou!!";
        
     }

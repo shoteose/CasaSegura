@@ -42,7 +42,7 @@ public class Bot : Player
                 if (resposta.correta)
                 {
                     
-                    StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!"));
+                    StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!", Color.green));
                     SoundFXManager.Instance.Som(true);
 
                     score++;
@@ -60,7 +60,7 @@ public class Bot : Player
                 }
                 else
                 {
-                    StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} errou!"));
+                    StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} errou!", Color.red));
                     SoundFXManager.Instance.Som(false);
 
                 }
