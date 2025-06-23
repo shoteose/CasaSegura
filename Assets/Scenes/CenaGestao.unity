@@ -911,7 +911,6 @@ MonoBehaviour:
   - {fileID: 2800000, guid: e6f597050faddfd4ea874a2f68919560, type: 3}
   - {fileID: 2800000, guid: cc5c724d9d006f64e9ff3a0fd5076a58, type: 3}
   paiPainel: {fileID: 124879543}
-  jogadoresAtivos: 
   nrBots: 1
 --- !u!1 &319250664
 GameObject:
@@ -1422,7 +1421,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Contra Computador
+  m_text: Contra o Computador
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e8976961830980245acea590b3f5f0c0, type: 2}
   m_sharedMaterial: {fileID: -7061117588391746634, guid: e8976961830980245acea590b3f5f0c0, type: 2}

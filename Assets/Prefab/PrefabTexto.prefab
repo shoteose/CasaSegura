@@ -313,8 +313,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1a6a539e095350249a3f746b2bf2aa47, type: 2}
-  m_sharedMaterial: {fileID: -3562454634019966882, guid: 1a6a539e095350249a3f746b2bf2aa47, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e8976961830980245acea590b3f5f0c0, type: 2}
+  m_sharedMaterial: {fileID: -7061117588391746634, guid: e8976961830980245acea590b3f5f0c0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: e8976961830980245acea590b3f5f0c0, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_KeepTextSelectionVisible: 0

@@ -2,7 +2,7 @@
     "versao": 2,
     "perguntas": [
         {
-            "questao": "Qual é a principal causa de queda de pessoas idosas dentro de casa?",
+            "questao": "Qual é a principal causa de queda de pessoas idosas dentro de casa é?",
             "respostas": [
                 {
                     "texto": "Falta de alimentação adequada.",
@@ -23,7 +23,7 @@
             ]
         },
         {
-            "questao": "Qual é o melhor tipo de calçado para prevenir quedas de pessoas idosas no domicílio?",
+            "questao": "Qual é o melhor tipo de calçado para prevenir quedas de pessoas idosas no domicílio são?",
             "respostas": [
                 {
                     "texto": "Sandálias abertas.",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "questao": "Qual destas medidas é mais importante para evitar quedas na Casa de banho?",
+            "questao": "Destas medidas,qual é mais importante para evitar quedas na Casa de banho?",
             "respostas": [
                 {
                     "texto": "Colocar tapetes felpudos no chão.",
@@ -65,7 +65,7 @@
             ]
         },
         {
-            "questao": "Como é que a iluminação adequada pode ajudar a prevenir quedas?",
+            "questao": "Como uma iluminação adequada pode ajudar a prevenir quedas?",
             "respostas": [
                 {
                     "texto": "Evita reflexos que podem confundir a pessoa idosa.",
@@ -86,7 +86,7 @@
             ]
         },
         {
-            "questao": "Por que é importante remover tapetes do caminho da pessoa idosa?",
+            "questao": "É importante remover tapetes do caminho da pessoa idosa?",
             "respostas": [
                 {
                     "texto": "Para evitar que a pessoa idosa tropece ou escorregue.",
@@ -107,7 +107,7 @@
             ]
         },
         {
-            "questao": "Qual é a posição ideal para os móveis dentro de casa?",
+            "questao": "A posição ideal para os móveis dentro de casa é?",
             "respostas": [
                 {
                     "texto": "De forma que deixem os corredores livres e sem obstruções.",
@@ -149,7 +149,7 @@
             ]
         },
         {
-            "questao": "Qual destas práticas é a mais indicada para a pessoa idosa se levantar da cama?",
+            "questao": "A prática mais indicada para a pessoa idosa se levantar da cama é?",
             "respostas": [
                 {
                     "texto": "Levantar-se rapidamente para não sentir frio.",
@@ -170,7 +170,7 @@
             ]
         },
         {
-            "questao": "Para as pessoas idosas, porque é recomendado manter os objetos de uso frequente ao seu alcance?",
+            "questao": "Recomenda-se manter os objetos de uso frequente ao alcance da pessoa idosa, porque?",
             "respostas": [
                 {
                     "texto": "Para evitar que eles precisem se esticar ou subir em cadeiras.",
@@ -233,7 +233,7 @@
             ]
         },
         {
-            "questao": "Porque é que o uso de bengalas e andarilhos pode ajudar na prevenção de quedas?",
+            "questao": "O uso de bengalas e andarilhos pode ajudar na prevenção de quedas, porquê?",
             "respostas": [
                 {
                     "texto": "Proporciona maior equilíbrio e apoio ao caminhar.",
@@ -254,7 +254,7 @@
             ]
         },
         {
-            "questao": "Porque é que as pessoas idosas devem evitar subir em cadeiras ou bancos?",
+            "questao": "As pessoas idosas devem evitar subir em cadeiras ou bancos, Porquê?",
             "respostas": [
                 {
                     "texto": "Para evitar a dor nas articulações.",
@@ -296,7 +296,7 @@
             ]
         },
         {
-            "questao": "Quais são os tipos de móveis que devem ser evitados na casa de uma pessoa idosa?",
+            "questao": "Que tipos de móveis devem ser evitados na casa de uma pessoa idosa?",
             "respostas": [
                 {
                     "texto": "Móveis leves e fáceis de mover.",
@@ -317,7 +317,7 @@
             ]
         },
         {
-            "questao": "Porque é que a casa de banho é um dos locais mais propenso a quedas?",
+            "questao": "A casa de banho é um dos locais mais propensos a quedas, porquê?",
             "respostas": [
                 {
                     "texto": "Por ser um ambiente molhado e escorregadio.",
@@ -422,7 +422,7 @@
             ]
         },
         {
-            "questao": "Qual é o motivo porque as pessoas idosas devem evitar se mover em ambientes escuros?",
+            "questao": "As pessoas idosas devem evitar se mover em ambientes escuros, porquê?",
             "respostas": [
                 {
                     "texto": "Porque dificulta a perceção dos obstáculos.",
@@ -464,7 +464,7 @@
             ]
         },
         {
-            "questao": "Qual é a prática correta para as pessoas idosas descerem escadas?",
+            "questao": "A prática correta para as pessoas idosas descerem escadas é?",
             "respostas": [
                 {
                     "texto": "Descer de costas para o corrimão.",
@@ -556,11 +556,11 @@
                 },
                 {
                     "texto": "Usar abraçadeiras para organizar os fios.",
-                    "correta": false
+                    "correta": true
                 },
                 {
                     "texto": "Deixar fios espalhados pelo chão.",
-                    "correta": true
+                    "correta": false
                 },
                 {
                     "texto": "Colocar os fios atrás dos móveis.",
