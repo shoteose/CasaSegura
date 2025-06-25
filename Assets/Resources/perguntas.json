@@ -1,8 +1,8 @@
 {
-    "versao": 2,
+    "versao": 1,
     "perguntas": [
         {
-            "questao": "Qual é a principal causa de queda de pessoas idosas dentro de casa é?",
+            "questao": "A principal causa de queda de pessoas idosas dentro de casa é?",
             "respostas": [
                 {
                     "texto": "Falta de alimentação adequada.",
@@ -23,7 +23,7 @@
             ]
         },
         {
-            "questao": "Qual é o melhor tipo de calçado para prevenir quedas de pessoas idosas no domicílio são?",
+            "questao": "O melhor tipo de calçado para prevenir quedas de pessoas idosas no domicílio são?",
             "respostas": [
                 {
                     "texto": "Sandálias abertas.",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "questao": "Destas medidas,qual é mais importante para evitar quedas na Casa de banho?",
+            "questao": "Destas medidas, qual é mais importante para evitar quedas na casa de banho?",
             "respostas": [
                 {
                     "texto": "Colocar tapetes felpudos no chão.",
@@ -131,27 +131,6 @@
             "questao": "O uso de barras de apoio é indicado, principalmente, em que locais?",
             "respostas": [
                 {
-                    "texto": "Corredores e cozinha.",
-                    "correta": false
-                },
-                {
-                    "texto": "Casa de banho e escadas.",
-                    "correta": true
-                },
-                {
-                    "texto": "Quartos e sala de estar.",
-                    "correta": false
-                },
-                {
-                    "texto": "Varanda e garagem.",
-                    "correta": false
-                }
-            ]
-        },
-        {
-            "questao": "A prática mais indicada para a pessoa idosa se levantar da cama é?",
-            "respostas": [
-                {
                     "texto": "Levantar-se rapidamente para não sentir frio.",
                     "correta": false
                 },
@@ -170,7 +149,7 @@
             ]
         },
         {
-            "questao": "Recomenda-se manter os objetos de uso frequente ao alcance da pessoa idosa, porque?",
+            "questao": "A prática mais indicada para a pessoa idosa se levantar da cama é?",
             "respostas": [
                 {
                     "texto": "Para evitar que eles precisem se esticar ou subir em cadeiras.",
@@ -627,6 +606,426 @@
                 },
                 {
                     "texto": "Incentivar o idoso a caminhar sem apoios para fortalecer o equilíbrio.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Recomenda-se manter os objetos de uso frequente ao alcance da pessoa idosa, porque?",
+            "respostas": [
+                {
+                    "texto": "Para evitar que eles precisem se esticar ou subir em cadeiras.",
+                    "correta": true
+                },
+                {
+                    "texto": "Para facilitar a organização da casa.",
+                    "correta": false
+                },
+                {
+                    "texto": "Para diminuir a desordem no ambiente.",
+                    "correta": false
+                },
+                {
+                    "texto": "Para economizar espaço.",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual das seguintes alterações físicas é frequente no envelhecimento e pode aumentar o risco de quedas?",
+            "respostas": [
+                {
+                    "texto": "Aumento da flexibilidade articular",
+                    "correta": false
+                },
+                {
+                    "texto": "Redução da força muscular",
+                    "correta": true
+                },
+                {
+                    "texto": "Melhoria da coordenação motora",
+                    "correta": false
+                },
+                {
+                    "texto": "Aumento da densidade óssea",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Uma alteração cognitiva comum no envelhecimento que pode contribuir para quedas é?",
+            "respostas": [
+                {
+                    "texto": "Memória melhorada a curto prazo",
+                    "correta": false
+                },
+                {
+                    "texto": "Diminuição da capacidade de atenção e concentração",
+                    "correta": true
+                },
+                {
+                    "texto": "Aumento do raciocínio lógico",
+                    "correta": false
+                },
+                {
+                    "texto": "Estímulo excessivo dos reflexos",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual das seguintes medidas contribui para a prevenção de quedas em casa?",
+            "respostas": [
+                {
+                    "texto": "Usar chinelos abertos dentro de casa",
+                    "correta": false
+                },
+                {
+                    "texto": "Manter tapetes soltos nos corredores",
+                    "correta": false
+                },
+                {
+                    "texto": "Garantir boa iluminação, principalmente durante a noite",
+                    "correta": true
+                },
+                {
+                    "texto": "Colocar móveis no meio das zonas de passagem",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A sarcopenia, frequente nos idosos, refere-se a?",
+            "respostas": [
+                {
+                    "texto": "Perda da massa muscular",
+                    "correta": true
+                },
+                {
+                    "texto": "Diminuição da memória",
+                    "correta": false
+                },
+                {
+                    "texto": "Rigidez articular",
+                    "correta": false
+                },
+                {
+                    "texto": "Problemas visuais",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A perda de acuidade visual na pessoa idosa pode contribuir para quedas porque?",
+            "respostas": [
+                {
+                    "texto": "Melhora a sensibilidade à luz",
+                    "correta": false
+                },
+                {
+                    "texto": "Prejudica a perceção de obstáculos e desníveis",
+                    "correta": true
+                },
+                {
+                    "texto": "Reduz a necessidade de andar",
+                    "correta": false
+                },
+                {
+                    "texto": "Estimula maior concentração",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual destas opções descreve uma alteração cognitiva que pode aumentar o risco de quedas?",
+            "respostas": [
+                {
+                    "texto": "Planeamento eficaz das tarefas",
+                    "correta": false
+                },
+                {
+                    "texto": "Diminuição do julgamento e da tomada de decisões",
+                    "correta": true
+                },
+                {
+                    "texto": "Maior controlo emocional",
+                    "correta": false
+                },
+                {
+                    "texto": "Aumento da velocidade de processamento mental",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Uma boa prática para reduzir o risco de quedas nas pessoas idosas é?",
+            "respostas": [
+                {
+                    "texto": "Manter todos os interruptores atrás dos móveis",
+                    "correta": false
+                },
+                {
+                    "texto": "Evitar qualquer tipo de atividade física",
+                    "correta": false
+                },
+                {
+                    "texto": "Praticar exercícios de equilíbrio e fortalecimento muscular",
+                    "correta": true
+                },
+                {
+                    "texto": "Colocar tapetes decorativos em todas as divisões",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Uma causa comum de queda relacionada com o uso de medicamentos em pessoas idosas é?",
+            "respostas": [
+                {
+                    "texto": "Melhoria do apetite",
+                    "correta": false
+                },
+                {
+                    "texto": "Estimulação do equilíbrio",
+                    "correta": false
+                },
+                {
+                    "texto": "Efeitos colaterais como sonolência ou hipotensão",
+                    "correta": true
+                },
+                {
+                    "texto": "Redução da sensibilidade ao frio",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A presença de demência leve pode aumentar o risco de quedas porque?",
+            "respostas": [
+                {
+                    "texto": "Melhora a concentração",
+                    "correta": false
+                },
+                {
+                    "texto": "Dificulta a orientação no espaço e a avaliação de riscos",
+                    "correta": true
+                },
+                {
+                    "texto": "Estimula a iniciativa de exercício físico",
+                    "correta": false
+                },
+                {
+                    "texto": "Reduz a ansiedade",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A marcha nas pessoas idosas pode tornar-se instável devido a?",
+            "respostas": [
+                {
+                    "texto": "Aumento da resistência cardiovascular",
+                    "correta": false
+                },
+                {
+                    "texto": "Encurtamento muscular e alterações na postura",
+                    "correta": true
+                },
+                {
+                    "texto": "Diminuição do apetite",
+                    "correta": false
+                },
+                {
+                    "texto": "Hipersensibilidade nos pés",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual destas práticas contribui diretamente para evitar quedas em pessoas idosas com défice cognitivo?",
+            "respostas": [
+                {
+                    "texto": "Incentivar multitarefas",
+                    "correta": false
+                },
+                {
+                    "texto": "Utilizar sinalização visual simples e clara",
+                    "correta": true
+                },
+                {
+                    "texto": "Reduzir a ingestão de líquidos",
+                    "correta": false
+                },
+                {
+                    "texto": "Trocar frequentemente os móveis de lugar",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A presença de artrose pode aumentar o risco de quedas porque?",
+            "respostas": [
+                {
+                    "texto": "Provoca rigidez articular e dor durante a marcha",
+                    "correta": true
+                },
+                {
+                    "texto": "Melhora a mobilidade e a amplitude articular",
+                    "correta": false
+                },
+                {
+                    "texto": "Estimula o idoso a praticar mais exercício",
+                    "correta": false
+                },
+                {
+                    "texto": "Reduz a sensibilidade à dor",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual das seguintes ações pode prevenir quedas durante a noite?",
+            "respostas": [
+                {
+                    "texto": "Evitar levantar-se para ir à casa de banho",
+                    "correta": false
+                },
+                {
+                    "texto": "Deixar as luzes apagadas para poupar energia",
+                    "correta": false
+                },
+                {
+                    "texto": "Colocar uma luz de presença no quarto e no corredor",
+                    "correta": true
+                },
+                {
+                    "texto": "Usar meias escorregadias no chão de madeira",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A deterioração das funções executivas na pessoa idosa pode levar a quedas porque?",
+            "respostas": [
+                {
+                    "texto": "Estimula a autonomia",
+                    "correta": false
+                },
+                {
+                    "texto": "Dificulta a realização de tarefas simples com segurança",
+                    "correta": true
+                },
+                {
+                    "texto": "Melhora a capacidade de reagir rapidamente",
+                    "correta": false
+                },
+                {
+                    "texto": "Aumenta o equilíbrio postural",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Um fator ambiental que pode aumentar o risco de queda é?",
+            "respostas": [
+                {
+                    "texto": "Ter interruptores acessíveis à entrada dos quartos",
+                    "correta": false
+                },
+                {
+                    "texto": "Tapetes sem antiderrapante",
+                    "correta": true
+                },
+                {
+                    "texto": "Corrimões instalados nas escadas",
+                    "correta": false
+                },
+                {
+                    "texto": "Sapatos com sola aderente",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "A toma de múltiplos medicamentos em simultâneo (polimedicação) pode ser perigosa porque?",
+            "respostas": [
+                {
+                    "texto": "Fortalece os músculos e dá excesso de energia",
+                    "correta": false
+                },
+                {
+                    "texto": "Reduz a qualidade do sono",
+                    "correta": false
+                },
+                {
+                    "texto": "Aumenta o risco de efeitos secundários como tonturas ou confusão mental",
+                    "correta": true
+                },
+                {
+                    "texto": "Estimula a atividade física espontânea",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "Qual das seguintes opções está correta quanto à prevenção de quedas em pessoas idosas com alterações cognitivas?",
+            "respostas": [
+                {
+                    "texto": "Incentivar mudanças rápidas de posição",
+                    "correta": false
+                },
+                {
+                    "texto": "Usar pisos muito brilhantes e espelhados",
+                    "correta": false
+                },
+                {
+                    "texto": "Criar uma rotina diária estável e previsível",
+                    "correta": true
+                },
+                {
+                    "texto": "Estimular decisões complexas e rápidas",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "O uso de auxiliares de marcha (ex: bengala ou andarilho) é indicado quando?",
+            "respostas": [
+                {
+                    "texto": "O idoso se sente completamente autónomo",
+                    "correta": false
+                },
+                {
+                    "texto": "O idoso apresenta dificuldades no equilíbrio ou marcha",
+                    "correta": true
+                },
+                {
+                    "texto": "O idoso recusa fazer exercícios",
+                    "correta": false
+                },
+                {
+                    "texto": "O médico pretende evitar o uso de calçado",
+                    "correta": false
+                }
+            ]
+        },
+        {
+            "questao": "O treino de dupla tarefa (ex: andar enquanto fala) pode ser benéfico para?",
+            "respostas": [
+                {
+                    "texto": "Aumentar a fadiga",
+                    "correta": false
+                },
+                {
+                    "texto": "Melhorar a atenção dividida e reduzir o risco de queda",
+                    "correta": true
+                },
+                {
+                    "texto": "Promover o isolamento",
+                    "correta": false
+                },
+                {
+                    "texto": "Tornar a marcha mais lenta e insegura",
                     "correta": false
                 }
             ]

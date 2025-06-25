@@ -9,5 +9,10 @@ public class MenuInicial : MonoBehaviour
         SceneManager.LoadScene("CenaGestao");
     }
 
+    public void FecharJogo()
+    {
+        Application.Quit();
+    }
+
 
 }

@@ -55,14 +55,18 @@ public class Humano : Player
                 {
                     if (respostaEscolhida.correta)
                     {
+                        StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!", Color.green));
                         SoundFXManager.Instance.Som(true);
                         score++;
                         StartCoroutine(AvancarMaisUmaCasaSePossivel());
                     }
                     else
                     {
-                        SoundFXManager.Instance.Som(false);
-                        FimDoTurno();
+                        Debug.Log("MAs errei ou nao");
+                        
+                        StartCoroutine(ErrasteEspera());
+
+                        
                     }
                 });
 
@@ -74,6 +78,14 @@ public class Humano : Player
             yield return new WaitForSeconds(1f);
             FimDoTurno();
         }
+    }
+
+    private IEnumerator ErrasteEspera()
+    {
+        SoundFXManager.Instance.Som(false);
+        yield return StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} errou!", Color.red));
+
+        FimDoTurno();
     }
 
     protected new virtual void FimDoTurno() {

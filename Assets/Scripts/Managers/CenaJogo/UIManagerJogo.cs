@@ -25,6 +25,8 @@ public class UIManagerJogo : MonoBehaviour
 
     [Header("Painel Pausa")]
     [SerializeField] private Button botaoPausa;
+    [SerializeField] private Button botaoSairJogo;
+
     [SerializeField] private GameObject painelPausa;
     [SerializeField] private Button botaoContinuar;
     [SerializeField] private Button botaoMenu;
@@ -79,12 +81,10 @@ public class UIManagerJogo : MonoBehaviour
         painelGameOver.SetActive(false);
         painelPausa.SetActive(false);
         botaoPausa.onClick.AddListener(AbrirPausa);
+        botaoSairJogo.onClick.AddListener(FecharJogo);
 
         //sliderSom = SliderSomGO.GetComponent<Slider>();
         //sliderSom.onValueChanged.AddListener(value => SetVolume(value));
-
-
-
 
     }
 
@@ -122,14 +122,13 @@ public class UIManagerJogo : MonoBehaviour
         fecharSomRoutine = null;
     }
 
-
-
     public void StopLoading()
     {
 
         loadingImage.SetActive(false);
 
     }
+    
     public void MostrarBotaoLancarDado(Action onClick)
     {
         painelLancarDado.SetActive(true);
@@ -150,7 +149,7 @@ public class UIManagerJogo : MonoBehaviour
         HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = mens;
         HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().color = cor;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         HolderTextoTurno.SetActive(false);
         HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
 
@@ -188,6 +187,10 @@ public class UIManagerJogo : MonoBehaviour
         });
     }
 
+    private void FecharJogo()
+    {
+        Application.Quit();
+    }
 
     public void RestartGame()
     {
@@ -255,8 +258,9 @@ public class UIManagerJogo : MonoBehaviour
         string nome = playerVez.nome;
 
         HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().text = "É a vez do " + nome;
-
+        HolderTextoTurno.GetComponentInChildren<TextMeshProUGUI>().color = Color.black;
         Color cor = ObterCorPorNome(nome);
+
 
         Image background = HolderTextoTurno.GetComponentInChildren<Image>();
         if (background != null) background.color = cor;
@@ -286,8 +290,6 @@ public class UIManagerJogo : MonoBehaviour
             return Color.black;
     }
 
-
-
     public IEnumerator MostrarExercicio(string descricao, string url)
     {
         Debug.Log($"[UI] Exibir exercício: {descricao}");
@@ -297,12 +299,12 @@ public class UIManagerJogo : MonoBehaviour
         painelExercicios.SetActive(true);
         textoExercicio.text = descricao;
 
-        for (int i = 1; i <= 10; i++)
+        for (int i = 1; i <= 30; i++)
         {
             while (Time.timeScale == 0f)
                 yield return null;
 
-            textoTempo.text = $"{11 - i} segundos";
+            textoTempo.text = $"{31 - i} segundos";
             yield return new WaitForSecondsRealtime(1f);
         }
 
@@ -314,6 +316,8 @@ public class UIManagerJogo : MonoBehaviour
     private IEnumerator downloadImagemFromUrl(string url)
     {
         UnityWebRequest www = UnityWebRequestTexture.GetTexture(url);
+        www.SetRequestHeader("User-Agent", "Mozilla/5.0");
+
 
         yield return www.SendWebRequest();
 
@@ -330,7 +334,17 @@ public class UIManagerJogo : MonoBehaviour
         {
 
             imagemExercicio.texture = noWifi;
-            Debug.Log($"Erro a fazer o download {url}");
+
+            string errorMsg = www.error;
+            long responseCode = www.responseCode;
+
+            Debug.LogError($"Erro ao fazer o download da imagem.\n" +
+               $"URL: {url}\n" +
+               $"Erro: {www.error}\n" +
+               $"Código HTTP: {www.responseCode}\n" +
+               $"IsNetworkError: {www.isNetworkError}\n" +
+               $"IsHttpError: {www.isHttpError}");
+
         }
 
 

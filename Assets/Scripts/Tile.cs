@@ -11,57 +11,25 @@ public class Tile : MonoBehaviour
     public bool especial;
     [SerializeField] private Material[] materiais;
     [SerializeField] private GameObject[] planes;
-    [SerializeField] private GameObject cubo;
-    [SerializeField] private Material cuboMat;
 
-    public void Questoes()
+    public void DefinirPergunta(Pergunta p)
     {
-        cuboMat = cubo.GetComponent<Material>();
-        
-        StartCoroutine(CarregarQuestoesCoroutine());
-    }
-
-    private IEnumerator CarregarQuestoesCoroutine()
-    {
-        
-        if (!especial)
+        questao = p.questao;
+        respostas = p.respostas;
+        foreach (var resposta in respostas)
         {
-            Debug.Log("Este tile é pergunta");
-            Perguntas perguntasArray = null;
-            yield return GenericLoader.Load<Perguntas>(ApiManager.nomeArquivoPerguntas, p => perguntasArray = p);
-
-            if (perguntasArray?.perguntas == null || perguntasArray.perguntas.Length == 0)
-                yield break;
-
-            int randomIndex = Random.Range(0, perguntasArray.perguntas.Length);
-            Pergunta perguntaAleatoria = perguntasArray.perguntas[randomIndex];
-
-            questao = perguntaAleatoria.questao;
-            respostas = perguntaAleatoria.respostas;
-
-            foreach (var resposta in respostas)
+            if (resposta.correta)
             {
-                if (resposta.correta)
-                {
-                    respostaCorreta = resposta.texto;
-                    break;
-                }
+                respostaCorreta = resposta.texto;
+                break;
             }
         }
-        else
-        {
-            Debug.Log("Este tile é especial");
-            Exercicios exerciciosArray = null;
-            yield return GenericLoader.Load<Exercicios>(ApiManager.nomeArquivoExercicios, e => exerciciosArray = e);
-
-            if (exerciciosArray?.exercicios == null || exerciciosArray.exercicios.Length == 0)
-                yield break;
-
-            int randomIndex = Random.Range(0, exerciciosArray.exercicios.Length);
-            Exercicio exercicioAleatorio = exerciciosArray.exercicios[randomIndex];
-
-            exercicio = exercicioAleatorio.exercicio;
-            url_imagem = exercicioAleatorio.url_imagem;
-        }
     }
+
+    public void DefinirExercicio(Exercicio e)
+    {
+        exercicio = e.exercicio;
+        url_imagem = e.url_imagem;
+    }
+
 }

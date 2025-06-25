@@ -12,6 +12,9 @@ public class BoardManager : MonoBehaviour
     private Tile[] tabuleiro;
     public Transform TabuleiroPai;
     public List<int> casasEspeciais;
+    private List<Pergunta> perguntasDisponiveis;
+    private List<Exercicio> exerciciosDisponiveis;
+
     public bool SetupConcluido { get; private set; } = false;
 
 
@@ -24,6 +27,14 @@ public class BoardManager : MonoBehaviour
 
     private IEnumerator Setup()
     {
+        Perguntas perguntasArray = null;
+        yield return GenericLoader.Load<Perguntas>(ApiManager.nomeArquivoPerguntas, p => perguntasArray = p);
+        perguntasDisponiveis = new List<Pergunta>(perguntasArray.perguntas);
+
+        Exercicios exerciciosArray = null;
+        yield return GenericLoader.Load<Exercicios>(ApiManager.nomeArquivoExercicios, e => exerciciosArray = e);
+        exerciciosDisponiveis = new List<Exercicio>(exerciciosArray.exercicios);
+
 
         float timeout = 10f; 
         float timer = 0f;
@@ -45,7 +56,8 @@ public class BoardManager : MonoBehaviour
         int nrCasasEspeciais;
         if (ApiManager.net)
         {
-            nrCasasEspeciais = Random.Range(4, (totalTiles / 4));
+            nrCasasEspeciais = Random.Range(6, (totalTiles / 4));
+            //nrCasasEspeciais = 30;
         }
         else
         {
@@ -72,15 +84,30 @@ public class BoardManager : MonoBehaviour
                 if (casasEspeciais.Contains(counter))
                 {
                     tileComponent.especial = true;
-                    //Debug.Log("sou especial no indice: " + counter);
+
+                    if (exerciciosDisponiveis.Count > 0)
+                    {
+                        int index = Random.Range(0, exerciciosDisponiveis.Count);
+                        var exercicio = exerciciosDisponiveis[index];
+                        tileComponent.DefinirExercicio(exercicio);
+                        exerciciosDisponiveis.RemoveAt(index);
+                    }
+                }
+                else
+                {
+                    if (perguntasDisponiveis.Count > 0)
+                    {
+                        int index = Random.Range(0, perguntasDisponiveis.Count);
+                        var pergunta = perguntasDisponiveis[index];
+                        tileComponent.DefinirPergunta(pergunta);
+                        perguntasDisponiveis.RemoveAt(index);
+                    }
                 }
 
-                tileComponent.Questoes();
                 tabuleiro[counter] = tileComponent;
-
-
                 counter++;
             }
+
         }
 
 

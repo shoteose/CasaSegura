@@ -9,21 +9,38 @@
         },
         {
             "pergunta": "Qual o seu sexo?",
-            "id":2,
+            "id": 2,
             "tipo": "dropdown",
-            "opcoes": [ "Masculino", "Feminino", "Prefiro não dizer" ]
+            "opcoes": [
+                "Masculino",
+                "Feminino",
+                "Prefiro não dizer"
+            ]
         },
         {
             "pergunta": "Qual o seu estado civil?",
-            "id":3,
+            "id": 3,
             "tipo": "dropdown",
-            "opcoes": [ "Solteiro(a)", "Casado(a)", "Viúvo(a)", "Divorciado(a)" ]
+            "opcoes": [
+                "Solteiro(a)",
+                "Casado(a)",
+                "Viúvo(a)",
+                "Divorciado(a)"
+            ]
         },
         {
             "pergunta": "Qual o seu grau de escolaridade?",
-            "id":4,
+            "id": 14,
             "tipo": "dropdown",
-            "opcoes": [ "Sem instrução", "Ensino Básico", "Ensino Secundário", "Ensino Superior" ]
+            "opcoes": [
+                "1.ª a 3.ª classe",
+                "4.ª classe",
+                "5.ª e/ou 6.ª classe",
+                "7.ª a 9.ª classe",
+                "10.º a 12.º ano",
+                "Curso técnico-profissional",
+                "Ensino Superior"
+            ]
         }
     ]
 }

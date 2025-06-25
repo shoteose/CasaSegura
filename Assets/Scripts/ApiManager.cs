@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 
 public class ApiManager : MonoBehaviour
 {
+    public static ApiManager Instance;
+
     private const string urlVersoes = "https://casaseguraapi.onrender.com/api/versoes";
 
     public static bool AtualizacaoTerminada = false;
@@ -21,10 +23,22 @@ public class ApiManager : MonoBehaviour
     private const string urlQuestionario = "https://casaseguraapi.onrender.com/api/perguntaquestionario/json";
     private const string urlRespostaquestionario = "https://casaseguraapi.onrender.com/api/respostaquestionario";
 
+
+    void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         StartCoroutine(Setup());
-     
     }
 
     private IEnumerator Setup()
@@ -33,10 +47,15 @@ public class ApiManager : MonoBehaviour
 
         if (net)
         {
-
-            StartCoroutine(VerificarAtualizacoes());
-
+            yield return StartCoroutine(VerificarAtualizacoes());
         }
+        else
+        {
+            AtualizacaoTerminada = true;
+        }
+
+        Destroy(gameObject);
+
     }
 
     private IEnumerator VerificarInternet()
@@ -94,7 +113,6 @@ public class ApiManager : MonoBehaviour
 
         AtualizacaoTerminada = true;
     }
-
 
     private IEnumerator DownloadEAtualizar(string nomeArquivo, string url, int versaoNova, System.Action<int> setVersaoCallback)
     {

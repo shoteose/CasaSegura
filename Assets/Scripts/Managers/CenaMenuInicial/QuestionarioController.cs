@@ -31,7 +31,7 @@ public class QuestionarioController : MonoBehaviour
         yield return GenericLoader.Load<Questionario>(ApiManager.nomeArquivoQuestionario, q =>
         {
             questionario = q;
-            Debug.Log(questionario.perguntas[0].id + " ----------");
+            
             if (questionario == null)
                 Debug.Log("Falha ao carregar questionário.");
 
