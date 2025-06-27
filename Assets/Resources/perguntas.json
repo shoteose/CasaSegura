@@ -2,6 +2,7 @@
     "versao": 1,
     "perguntas": [
         {
+            "id": 1,
             "questao": "A principal causa de queda de pessoas idosas dentro de casa é?",
             "respostas": [
                 {
@@ -23,6 +24,7 @@
             ]
         },
         {
+            "id": 2,
             "questao": "O melhor tipo de calçado para prevenir quedas de pessoas idosas no domicílio são?",
             "respostas": [
                 {
@@ -44,6 +46,7 @@
             ]
         },
         {
+            "id": 3,
             "questao": "Destas medidas, qual é mais importante para evitar quedas na casa de banho?",
             "respostas": [
                 {
@@ -65,6 +68,7 @@
             ]
         },
         {
+            "id": 4,
             "questao": "Como uma iluminação adequada pode ajudar a prevenir quedas?",
             "respostas": [
                 {
@@ -86,6 +90,7 @@
             ]
         },
         {
+            "id": 5,
             "questao": "É importante remover tapetes do caminho da pessoa idosa?",
             "respostas": [
                 {
@@ -107,6 +112,7 @@
             ]
         },
         {
+            "id": 6,
             "questao": "A posição ideal para os móveis dentro de casa é?",
             "respostas": [
                 {
@@ -128,6 +134,7 @@
             ]
         },
         {
+            "id": 8,
             "questao": "O uso de barras de apoio é indicado, principalmente, em que locais?",
             "respostas": [
                 {
@@ -149,6 +156,7 @@
             ]
         },
         {
+            "id": 9,
             "questao": "A prática mais indicada para a pessoa idosa se levantar da cama é?",
             "respostas": [
                 {
@@ -170,6 +178,7 @@
             ]
         },
         {
+            "id": 10,
             "questao": "Qual destes tipos de piso é o mais indicado para reduzir o risco de quedas?",
             "respostas": [
                 {
@@ -191,6 +200,7 @@
             ]
         },
         {
+            "id": 11,
             "questao": "Em qual destes locais é recomendado ter boa iluminação durante a noite?",
             "respostas": [
                 {
@@ -212,6 +222,7 @@
             ]
         },
         {
+            "id": 12,
             "questao": "O uso de bengalas e andarilhos pode ajudar na prevenção de quedas, porquê?",
             "respostas": [
                 {
@@ -233,6 +244,7 @@
             ]
         },
         {
+            "id": 13,
             "questao": "As pessoas idosas devem evitar subir em cadeiras ou bancos, Porquê?",
             "respostas": [
                 {
@@ -254,6 +266,7 @@
             ]
         },
         {
+            "id": 14,
             "questao": "Como é que a atividade física regular pode ajudar a prevenir quedas de pessoas idosas?",
             "respostas": [
                 {
@@ -275,6 +288,7 @@
             ]
         },
         {
+            "id": 15,
             "questao": "Que tipos de móveis devem ser evitados na casa de uma pessoa idosa?",
             "respostas": [
                 {
@@ -296,6 +310,7 @@
             ]
         },
         {
+            "id": 16,
             "questao": "A casa de banho é um dos locais mais propensos a quedas, porquê?",
             "respostas": [
                 {
@@ -317,6 +332,7 @@
             ]
         },
         {
+            "id": 17,
             "questao": "Qual é a melhor opção para tapetes em casa com as pessoas idosas?",
             "respostas": [
                 {
@@ -338,6 +354,7 @@
             ]
         },
         {
+            "id": 18,
             "questao": "Qual é a prática mais indicada para o idoso se deslocar pela casa?",
             "respostas": [
                 {
@@ -359,6 +376,7 @@
             ]
         },
         {
+            "id": 19,
             "questao": "O que pode ser feito para evitar quedas ao entrar em casa em dias de chuva?",
             "respostas": [
                 {
@@ -380,6 +398,7 @@
             ]
         },
         {
+            "id": 20,
             "questao": "Que tipo de exercício é recomendado para fortalecer o equilíbrio?",
             "respostas": [
                 {
@@ -401,6 +420,7 @@
             ]
         },
         {
+            "id": 21,
             "questao": "As pessoas idosas devem evitar se mover em ambientes escuros, porquê?",
             "respostas": [
                 {
@@ -422,6 +442,7 @@
             ]
         },
         {
+            "id": 22,
             "questao": "Como devem ser as cadeiras para as pessoas idosas usarem com segurança?",
             "respostas": [
                 {
@@ -443,6 +464,7 @@
             ]
         },
         {
+            "id": 23,
             "questao": "A prática correta para as pessoas idosas descerem escadas é?",
             "respostas": [
                 {
@@ -464,6 +486,7 @@
             ]
         },
         {
+            "id": 24,
             "questao": "Qual é a função de um corrimão instalado nas escadas?",
             "respostas": [
                 {
@@ -485,6 +508,7 @@
             ]
         },
         {
+            "id": 25,
             "questao": "Qual é a posição ideal para a pessoa idosa apanhar algo do chão?",
             "respostas": [
                 {
@@ -506,6 +530,7 @@
             ]
         },
         {
+            "id": 26,
             "questao": "Qual é o benefício de um ambiente organizado para as pessoas idosas?",
             "respostas": [
                 {
@@ -527,6 +552,7 @@
             ]
         },
         {
+            "id": 27,
             "questao": "O que deve ser feito na organização de fios e cabos em casa?",
             "respostas": [
                 {
@@ -548,6 +574,7 @@
             ]
         },
         {
+            "id": 28,
             "questao": "Como deve a pessoa idosa ser incentivado a cuidar da sua própria segurança?",
             "respostas": [
                 {
@@ -569,6 +596,7 @@
             ]
         },
         {
+            "id": 29,
             "questao": "Quais os  alimentos mais importantes para a saúde dos ossos da pessoa idosa?",
             "respostas": [
                 {
@@ -590,6 +618,7 @@
             ]
         },
         {
+            "id": 30,
             "questao": "Qual destas recomendações é a ideal para a prevenção de quedas?",
             "respostas": [
                 {
@@ -611,6 +640,7 @@
             ]
         },
         {
+            "id": 56,
             "questao": "Recomenda-se manter os objetos de uso frequente ao alcance da pessoa idosa, porque?",
             "respostas": [
                 {
@@ -632,6 +662,7 @@
             ]
         },
         {
+            "id": 58,
             "questao": "Qual das seguintes alterações físicas é frequente no envelhecimento e pode aumentar o risco de quedas?",
             "respostas": [
                 {
@@ -653,6 +684,7 @@
             ]
         },
         {
+            "id": 59,
             "questao": "Uma alteração cognitiva comum no envelhecimento que pode contribuir para quedas é?",
             "respostas": [
                 {
@@ -674,6 +706,7 @@
             ]
         },
         {
+            "id": 60,
             "questao": "Qual das seguintes medidas contribui para a prevenção de quedas em casa?",
             "respostas": [
                 {
@@ -695,6 +728,7 @@
             ]
         },
         {
+            "id": 61,
             "questao": "A sarcopenia, frequente nos idosos, refere-se a?",
             "respostas": [
                 {
@@ -716,6 +750,7 @@
             ]
         },
         {
+            "id": 62,
             "questao": "A perda de acuidade visual na pessoa idosa pode contribuir para quedas porque?",
             "respostas": [
                 {
@@ -737,6 +772,7 @@
             ]
         },
         {
+            "id": 63,
             "questao": "Qual destas opções descreve uma alteração cognitiva que pode aumentar o risco de quedas?",
             "respostas": [
                 {
@@ -758,6 +794,7 @@
             ]
         },
         {
+            "id": 64,
             "questao": "Uma boa prática para reduzir o risco de quedas nas pessoas idosas é?",
             "respostas": [
                 {
@@ -779,6 +816,7 @@
             ]
         },
         {
+            "id": 65,
             "questao": "Uma causa comum de queda relacionada com o uso de medicamentos em pessoas idosas é?",
             "respostas": [
                 {
@@ -800,6 +838,7 @@
             ]
         },
         {
+            "id": 66,
             "questao": "A presença de demência leve pode aumentar o risco de quedas porque?",
             "respostas": [
                 {
@@ -821,6 +860,7 @@
             ]
         },
         {
+            "id": 67,
             "questao": "A marcha nas pessoas idosas pode tornar-se instável devido a?",
             "respostas": [
                 {
@@ -842,6 +882,7 @@
             ]
         },
         {
+            "id": 68,
             "questao": "Qual destas práticas contribui diretamente para evitar quedas em pessoas idosas com défice cognitivo?",
             "respostas": [
                 {
@@ -863,6 +904,7 @@
             ]
         },
         {
+            "id": 69,
             "questao": "A presença de artrose pode aumentar o risco de quedas porque?",
             "respostas": [
                 {
@@ -884,6 +926,7 @@
             ]
         },
         {
+            "id": 70,
             "questao": "Qual das seguintes ações pode prevenir quedas durante a noite?",
             "respostas": [
                 {
@@ -905,6 +948,7 @@
             ]
         },
         {
+            "id": 71,
             "questao": "A deterioração das funções executivas na pessoa idosa pode levar a quedas porque?",
             "respostas": [
                 {
@@ -926,6 +970,7 @@
             ]
         },
         {
+            "id": 72,
             "questao": "Um fator ambiental que pode aumentar o risco de queda é?",
             "respostas": [
                 {
@@ -947,6 +992,7 @@
             ]
         },
         {
+            "id": 73,
             "questao": "A toma de múltiplos medicamentos em simultâneo (polimedicação) pode ser perigosa porque?",
             "respostas": [
                 {
@@ -968,6 +1014,7 @@
             ]
         },
         {
+            "id": 74,
             "questao": "Qual das seguintes opções está correta quanto à prevenção de quedas em pessoas idosas com alterações cognitivas?",
             "respostas": [
                 {
@@ -989,6 +1036,7 @@
             ]
         },
         {
+            "id": 75,
             "questao": "O uso de auxiliares de marcha (ex: bengala ou andarilho) é indicado quando?",
             "respostas": [
                 {
@@ -1010,6 +1058,7 @@
             ]
         },
         {
+            "id": 76,
             "questao": "O treino de dupla tarefa (ex: andar enquanto fala) pode ser benéfico para?",
             "respostas": [
                 {

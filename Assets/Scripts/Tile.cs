@@ -4,6 +4,7 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     public string questao;
+    public int id;
     public Resposta[] respostas;
     public string exercicio;
     public string url_imagem;
@@ -14,6 +15,7 @@ public class Tile : MonoBehaviour
 
     public void DefinirPergunta(Pergunta p)
     {
+        id = p.id;
         questao = p.questao;
         respostas = p.respostas;
         foreach (var resposta in respostas)

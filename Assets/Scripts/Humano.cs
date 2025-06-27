@@ -53,7 +53,13 @@ public class Humano : Player
             {
                 UIManagerJogo.Instance.MostrarPergunta(tileAtual.questao, tileAtual.respostas, (respostaEscolhida) =>
                 {
-                    if (respostaEscolhida.correta)
+
+                    bool acertou = respostaEscolhida.correta;
+                    HistoricoRespostaManager.AdicionarResposta(tileAtual.id, acertou);
+                    HistoricoRespostaManager.DebugImprimirRespostas();
+
+
+                    if (acertou)
                     {
                         StartCoroutine(UIManagerJogo.Instance.EditarTextoTurno($"O jogador {this.nome} acertou!", Color.green));
                         SoundFXManager.Instance.Som(true);

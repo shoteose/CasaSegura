@@ -22,7 +22,7 @@ public class ApiManager : MonoBehaviour
     private const string urlExercicios = "https://casaseguraapi.onrender.com/api/exercicio/json";
     private const string urlQuestionario = "https://casaseguraapi.onrender.com/api/perguntaquestionario/json";
     private const string urlRespostaquestionario = "https://casaseguraapi.onrender.com/api/respostaquestionario";
-
+    private const string urlAcertosPerguntas = "https://casaseguraapi.onrender.com/api/estatisticaspergunta";
 
     void Awake()
     {
@@ -48,11 +48,13 @@ public class ApiManager : MonoBehaviour
         if (net)
         {
             yield return StartCoroutine(VerificarAtualizacoes());
+
+            yield return StartCoroutine(EnviarRespostasPendentes());
+
         }
-        else
-        {
-            AtualizacaoTerminada = true;
-        }
+
+        AtualizacaoTerminada = true;
+        
 
         Destroy(gameObject);
 
@@ -169,5 +171,57 @@ public class ApiManager : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator EnviarEstatistica(ResultadoPergunta r)
+    {
+
+        string jsonData = JsonUtility.ToJson(r);
+
+        Debug.Log("JSON Enviado: " + jsonData);
+
+
+        using (UnityWebRequest request = new UnityWebRequest(urlAcertosPerguntas, "POST"))
+        {
+            byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsonData);
+            request.uploadHandler = new UploadHandlerRaw(jsonToSend);
+            request.downloadHandler = new DownloadHandlerBuffer();
+            request.SetRequestHeader("Content-Type", "application/json");
+
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError($"Erro ao enviar estatística da pergunta {r.pergunta_id}: {request.error}");
+            }
+            else
+            {
+                Debug.Log($"Estatística enviada: Pergunta {r.pergunta_id} | certas: {r.certas} | erradas: {r.erradas}");
+            }
+        }
+    }
+
+
+    public IEnumerator EnviarRespostasPendentes()
+    {
+        var pendentes = HistoricoRespostaManager.GetRespostasPendentes();
+
+        if (pendentes.Count == 0)
+        {
+            Debug.Log("Nenhuma resposta ainda para enviar.");
+            yield break;
+        }
+
+        Debug.Log($"A enviar {pendentes.Count} respostas pendentes...");
+
+        foreach (var r in pendentes)
+        {
+            yield return StartCoroutine(EnviarEstatistica(r));
+        }
+
+
+        HistoricoRespostaManager.Limpar();
+        Debug.Log("Histórico de respostas enviado e limpo.");
+    }
+
 
 }
